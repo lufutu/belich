@@ -1,7 +1,7 @@
 {
     "name": "daguilarm/belich",
     "description": "Laravel admin dashboard",
-    "keywords": ["framework", "laravel","dashboard","vuejs", "admin"],
+    "keywords": ["framework", "laravel","dashboard","livewire", "alpinejs", "admin"],
     "type": "project",
     "license": "MIT",
     "authors": [

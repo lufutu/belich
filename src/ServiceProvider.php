@@ -14,15 +14,15 @@ final class ServiceProvider extends Provider
      */
     public function boot(): void
     {
-        if ($this->app->runningInConsole()) {
-            $this->registerPublishing();
-        }
+        // if ($this->app->runningInConsole()) {
+        //     $this->registerPublishing();
+        // }
 
         $this->registerBootstrap();
-        $this->registerRoutes();
-        $this->registerResources();
-        $this->registerConsole();
-        $this->registerMigrations();
+        // $this->registerRoutes();
+        // $this->registerResources();
+        // $this->registerConsole();
+        // $this->registerMigrations();
     }
 
     /**
