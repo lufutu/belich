@@ -1,0 +1,46 @@
+{
+    "name": "daguilarm/belich",
+    "description": "Laravel admin dashboard",
+    "keywords": ["framework", "laravel","dashboard","vuejs", "admin"],
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "daguilarm",
+            "email": "damian.aguilarm@gmail.com",
+            "homepage": "https://daguilar.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "^7.4",
+        "rap2hpoutre/fast-excel": "dev-master",
+        "matthiasmullie/minify": "dev-master",
+        "moneyphp/money": "^3.2",
+        "daguilarm/bicons": "v1.x-dev",
+        "spatie/laravel-blade-x": "^2.5",
+        "parsedown/laravel": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Daguilarm\\Belich\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+          "Daguilarm\\Belich\\Tests\\": "tests/"
+        }
+      },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Daguilarm\\Belich\\ServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "nunomaduro/phpinsights": "dev-master"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
