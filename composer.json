@@ -13,13 +13,12 @@
         }
     ],
     "require": {
-        "php" : "^7.4",
-        "rap2hpoutre/fast-excel": "dev-master",
-        "matthiasmullie/minify": "dev-master",
-        "moneyphp/money": "^3.2",
-        "daguilarm/bicons": "v1.x-dev",
-        "spatie/laravel-blade-x": "^2.5",
-        "parsedown/laravel": "^1.2"
+        "php" : "^8.0",
+        "illuminate/contracts": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.13",
+        "phpunit/phpunit": "^9.3"
     },
     "autoload": {
         "psr-4": {
@@ -28,18 +27,30 @@
     },
     "autoload-dev": {
         "psr-4": {
-          "Daguilarm\\Belich\\Tests\\": "tests/"
+            "Daguilarm\\Belich\\Tests\\": "tests/",
+            "Daguilarm\\Belich\\Database\\Factories\\": "database/factories"
         }
       },
     "extra": {
         "laravel": {
             "providers": [
                 "Daguilarm\\Belich\\ServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Belich": "Daguilarm\\Belich\\BelichFacade"
+            }
         }
     },
     "require-dev": {
         "nunomaduro/phpinsights": "dev-master"
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
     },
     "minimum-stability": "dev",
     "prefer-stable": true
