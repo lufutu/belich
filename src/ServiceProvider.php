@@ -19,7 +19,7 @@ final class ServiceProvider extends Provider
         // }
 
         $this->registerBootstrap();
-        // $this->registerRoutes();
+        $this->registerRoutes();
         // $this->registerResources();
         // $this->registerConsole();
         // $this->registerMigrations();
@@ -53,7 +53,7 @@ final class ServiceProvider extends Provider
     protected function registerBootstrap(): void
     {
         // Middleware
-        // $this->app['router']->pushMiddlewareToGroup('https', \Daguilarm\Belich\Http\Middleware\HttpsMiddleware::class);
+        $this->app['router']->pushMiddlewareToGroup('https', \Daguilarm\Belich\Http\Middleware\HttpsMiddleware::class);
         // $this->app['router']->pushMiddlewareToGroup('belich', \Daguilarm\Belich\Http\Middleware\BelichMiddleware::class);
         // $this->app['router']->pushMiddlewareToGroup('minify', \Daguilarm\Belich\Http\Middleware\MinifyMiddleware::class);
     }
@@ -63,11 +63,8 @@ final class ServiceProvider extends Provider
      */
     protected function registerRoutes(): void
     {
-        // //Auth routes
-        // require_once __DIR__ . '/../routes/AuthRoutes.php';
-
-        // //Dashboard routes
-        // require_once __DIR__ . '/../routes/ResolveRoutes.php';
+        //Dashboard routes
+        require_once __DIR__ . '/../routes/ResolveRoutes.php';
     }
 
     /**
