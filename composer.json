@@ -37,7 +37,8 @@
                 "Daguilarm\\Belich\\ServiceProvider"
             ],
             "aliases": {
-                "Belich": "Daguilarm\\Belich\\BelichFacade"
+                "Belich": "Daguilarm\\Belich\\BelichFacade",
+                "Helper": "Daguilarm\\Belich\\HelperFacade"
             }
         }
     },

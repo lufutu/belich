@@ -20,7 +20,7 @@ final class ServiceProvider extends Provider
 
         $this->registerBootstrap();
         $this->registerRoutes();
-        // $this->registerResources();
+        $this->registerResources();
         // $this->registerConsole();
         // $this->registerMigrations();
     }
@@ -31,8 +31,8 @@ final class ServiceProvider extends Provider
     public function register(): void
     {
         //Belich Facade
-        // $this->app->register(\Daguilarm\Belich\Facades\BelichProvider::class);
-        // AliasLoader::getInstance()->alias('Belich', \Daguilarm\Belich\Facades\Belich::class);
+        $this->app->register(\Daguilarm\Belich\Facades\BelichProvider::class);
+        AliasLoader::getInstance()->alias('Belich', \Daguilarm\Belich\Facades\Belich::class);
 
         // //Chart Facade
         // $this->app->register(\Daguilarm\Belich\Facades\ChartProvider::class);
@@ -43,8 +43,8 @@ final class ServiceProvider extends Provider
         // AliasLoader::getInstance()->alias('Icon', \Daguilarm\Belich\Facades\Icon::class);
 
         // //Helper Facade
-        // $this->app->register(\Daguilarm\Belich\Facades\HelperProvider::class);
-        // AliasLoader::getInstance()->alias('Helper', \Daguilarm\Belich\Facades\Helper::class);
+        $this->app->register(\Daguilarm\Belich\Facades\HelperProvider::class);
+        AliasLoader::getInstance()->alias('Helper', \Daguilarm\Belich\Facades\Helper::class);
     }
 
     /**

@@ -8,7 +8,12 @@ use Daguilarm\Belich\Components\Helpers\Time;
 
 final class Helper
 {
-    use Time;
+    use Blade,
+        Models,
+        Paths,
+        Strings,
+        Time,
+        Validate;
 
     /**
      * Generate helper's methods

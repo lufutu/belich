@@ -8,8 +8,8 @@ Route::group([
     'middleware' => ['web', 'auth:sanctum', 'verified'],
 ], static function (): void {
     //Validation routes
-    Route::get('/dashboard/panel', function() {
-        return 'hellow';
+    Route::get('/dashboard', function() {
+        return view('belich::dashboard');
     })->name('dashboard');
 
     //Load all the custom routes
