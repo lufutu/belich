@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\Belich\Components;
+namespace Daguilarm\Belich\Services;
 
-use Daguilarm\Belich\Components\Helpers\Blade;
-use Daguilarm\Belich\Components\Helpers\Models;
-use Daguilarm\Belich\Components\Helpers\Paths;
-use Daguilarm\Belich\Components\Helpers\Strings;
-use Daguilarm\Belich\Components\Helpers\Time;
-use Daguilarm\Belich\Components\Helpers\Validate;
+use Daguilarm\Belich\Services\Helpers\Blade;
+use Daguilarm\Belich\Services\Helpers\Models;
+use Daguilarm\Belich\Services\Helpers\Paths;
+use Daguilarm\Belich\Services\Helpers\Strings;
+use Daguilarm\Belich\Services\Helpers\Time;
+use Daguilarm\Belich\Services\Helpers\Validate;
 
 final class Helper
 {

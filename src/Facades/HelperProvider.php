@@ -21,7 +21,7 @@ final class HelperProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton('Helper', static function () {
-            return new \Daguilarm\Belich\Components\Helper();
+            return new \Daguilarm\Belich\Services\Helper();
         });
     }
 }

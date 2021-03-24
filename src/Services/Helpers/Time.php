@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\Belich\Components\Helpers;
+namespace Daguilarm\Belich\Services\Helpers;
 
 use Carbon\Carbon;
 

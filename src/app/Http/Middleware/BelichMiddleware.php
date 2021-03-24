@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\Belich\Http\Middleware;
+namespace Daguilarm\Belich\App\Http\Middleware;
 
 use Closure;
 use Daguilarm\Belich\Core\Belich;
