@@ -56,17 +56,30 @@ final class MinifyMiddleware
         /** @var Response $response */
         $response = $next($request);
 
-        if (
-            ! config('belich.minifyHtml.enable') ||
-            ! $this->isHtml($response) ||
-            in_array(Belich::action(), $this->exceptedActions()) ||
-            in_array(trim($request->path(), '/'), config('belich.minifyHtml.except.paths'))
-        ) {
+        // If the minify is disabled
+        if (! config('belich.minifyHtml.enable')) {
+            return $response;
+        }
+
+        // If the headers are incorrents
+        if (! $this->isHtml($response)) {
+            return $response;
+        }
+
+        // If the current action is excluded
+        if (in_array(Belich::action(), $this->exceptedActions())) {
+            return $response;
+        }
+
+        //Filter by url path
+        if (in_array(trim($request->path(), '/'), config('belich.minifyHtml.except.paths'))) {
             return $response;
         }
 
         //Minify
-        $response->setContent($this->html($response->getContent()));
+        return $response->setContent(
+            $this->html($response->getContent())
+        );
     }
 
     /**
@@ -85,13 +98,13 @@ final class MinifyMiddleware
     /**
      * Check if the header response is text/html.
      */
-    private function isHtml(object $response, string $type = ''): bool
+    private function isHtml(object $response): bool
     {
         $content = $response->headers->get('Content-Type');
 
         return $content
             ? strtolower(strtok($content, ';')) === 'text/html'
-            : $type === 'belich/html';
+            : false;
     }
 
     /**
