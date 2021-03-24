@@ -19,6 +19,9 @@ return [
     //Application url
     'url' => env('APP_URL', '/'),
 
+    //Default resource's folder
+    'resources' => app_path('Belich/Resources'),
+
     /*
     |--------------------------------------------------------------------------
     | Route Middleware

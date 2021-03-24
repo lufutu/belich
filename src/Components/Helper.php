@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace Daguilarm\Belich\Components;
 
+use Daguilarm\Belich\Components\Helpers\Blade;
+use Daguilarm\Belich\Components\Helpers\Models;
+use Daguilarm\Belich\Components\Helpers\Paths;
+use Daguilarm\Belich\Components\Helpers\Strings;
 use Daguilarm\Belich\Components\Helpers\Time;
+use Daguilarm\Belich\Components\Helpers\Validate;
 
 final class Helper
 {

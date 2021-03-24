@@ -17,8 +17,9 @@
         "illuminate/contracts": "^8.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.13",
-        "phpunit/phpunit": "^9.3"
+        "nunomaduro/phpinsights": "dev-master",
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
     },
     "autoload": {
         "psr-4": {
@@ -29,8 +30,12 @@
         "psr-4": {
             "Daguilarm\\Belich\\Tests\\": "tests/",
             "Daguilarm\\Belich\\Database\\Factories\\": "database/factories"
-        }
-      },
+        },
+        "classmap": [
+            "tests",
+            "database/"
+        ]
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -41,9 +46,6 @@
                 "Helper": "Daguilarm\\Belich\\HelperFacade"
             }
         }
-    },
-    "require-dev": {
-        "nunomaduro/phpinsights": "dev-master"
     },
     "scripts": {
         "psalm": "vendor/bin/psalm",
