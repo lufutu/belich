@@ -7,13 +7,13 @@ namespace Daguilarm\Belich\Core;
 use Daguilarm\Belich\Core\Belich\Traits\Resourceable;
 use Daguilarm\Belich\Core\Belich\Traits\Testeable;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 final class Belich
 {
     use Resourceable,
         Testeable;
 
+    /** @var array<string> */
     protected array $allowedActions = ['index', 'create', 'edit', 'show'];
     protected int $perPage = 0;
     protected object $request;

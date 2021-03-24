@@ -5,13 +5,16 @@ declare(strict_types=1);
 namespace Daguilarm\Belich\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 
 final class HttpsMiddleware
 {
     /**
      * Force to secure URL
+     *
+     * @return  Illuminate\Http\Request
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next): Illuminate\Http\RedirectResponse
     {
         if (! $request->secure()) {
             return redirect()->secure($request->getRequestUri());

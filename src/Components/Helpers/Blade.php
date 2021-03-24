@@ -8,6 +8,8 @@ trait Blade
 {
     /**
      * Hide content base on screen size
+     *
+     * @param array<string> $hideFor
      */
     public function hideContainerForScreens(array $hideFor): string
     {

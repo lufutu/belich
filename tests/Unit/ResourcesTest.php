@@ -15,8 +15,29 @@ class ResourcesTest extends TestCase
     public function testGetResourcesFromFolderTest()
     {
         $resources = Belich::allResources('tests/Fixtures/Resources')->count();
-        dd(Belich::allResources('tests/Fixtures/Resources'));
-
+        dd(Belich::displayNavigationFields());
         $this->assertEquals($resources, 3);
+    }
+
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testGetResourcesValueTest()
+    {
+        $resources = Belich::navigationFields('Cars');
+        $result = collect([
+            'class' => 'Cars',
+            'displayInNavigation' => true,
+            'group' => 'Sección 1',
+            // Only for testing
+            'icon' => '',
+            'label' => 'Coche',
+            'pluralLabel' => 'Coches',
+            'resource' => 'Cars',
+        ]);
+
+        $this->assertEquals($resources, $result);
     }
 }

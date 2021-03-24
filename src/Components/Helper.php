@@ -22,8 +22,10 @@ final class Helper
 
     /**
      * Generate helper's methods
+     *
+     * @param array<int,string> $parameters
      */
-    public function __call(string $method, array $parameters)
+    public function __call(string $method, array $parameters): method
     {
         if (method_exists($this, $method)) {
             $reflection = new \ReflectionMethod($this, $method);

@@ -11,7 +11,9 @@ abstract class Forms
 {
     public static Collection $fields;
 
+    /** @var array<string> */
     public static array $relationships = [];
+    /** @var array<string> */
     public static array $search = [];
     public static bool $accessToResource = true;
     public static bool $displayInNavigation = true;
@@ -28,6 +30,8 @@ abstract class Forms
 
     /**
      * Get the fields displayed by the resource.
+     *
+     * @return array<string>
      */
     abstract public function fields(Request $request): array;
 }

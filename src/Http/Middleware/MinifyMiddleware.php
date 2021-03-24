@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
  */
 final class MinifyMiddleware
 {
+    /** @var array<string> */
     private array $htmlFilters = [
         // Remove HTML comments except IE conditions
         '/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->/s' => '',
@@ -30,6 +31,7 @@ final class MinifyMiddleware
         '/(\.+\/)/' => '',
     ];
 
+    /** @var array<string> */
     private array $htmlSpaces = [
         '{ ' => '{',
         ' }' => '}',
@@ -41,6 +43,7 @@ final class MinifyMiddleware
         'while (' => 'while(',
     ];
 
+    /** @var array<string> */
     private array $exceptedActions = [
         'download',
     ];
@@ -48,30 +51,28 @@ final class MinifyMiddleware
     /**
      * Handle an incoming request.
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): Illuminate\Http\Request
     {
         /** @var Response $response */
         $response = $next($request);
 
-        if (config('belich.minifyHtml.enable') && $this->isHtml($response)) {
-            //Filter by exclusionary action
-            if (in_array(Belich::action(), $this->exceptedActions())) {
-                return $response;
-            }
-            //Filter by url path
-            if (in_array(trim($request->path(), '/'), config('belich.minifyHtml.except.paths'))) {
-                return $response;
-            }
-
-            //Minify
-            $response->setContent($this->html($response->getContent()));
+        if (
+            ! config('belich.minifyHtml.enable') ||
+            ! $this->isHtml($response) ||
+            in_array(Belich::action(), $this->exceptedActions()) ||
+            in_array(trim($request->path(), '/'), config('belich.minifyHtml.except.paths'))
+        ) {
+            return $response;
         }
 
-        return $response;
+        //Minify
+        $response->setContent($this->html($response->getContent()));
     }
 
     /**
      * Filter Controller actions to be excluded from minify
+     *
+     * @return array<string>
      */
     private function exceptedActions(): array
     {
@@ -88,13 +89,9 @@ final class MinifyMiddleware
     {
         $content = $response->headers->get('Content-Type');
 
-        if ($content) {
-            $type = strtolower(strtok($content, ';'));
-
-            return $type === 'text/html';
-        }
-
-        return $type === 'belich/html';
+        return $content
+            ? strtolower(strtok($content, ';')) === 'text/html'
+            : $type === 'belich/html';
     }
 
     /**

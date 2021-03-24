@@ -6,7 +6,6 @@ namespace Daguilarm\Belich\Core\Belich\Traits;
 
 use Daguilarm\Belich\Facades\Belich;
 use Daguilarm\Belich\Facades\Helper;
-use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
@@ -42,9 +41,9 @@ trait Resourceable
             'class' => $resourceName,
             'displayInNavigation' => $class::$displayInNavigation,
             'group' => $class::$group,
-            // 'icon' => $class::$icon ?? config('belich.navbar.defaultIcon') ?? '',
-            'label' => $class::$label ?? Str::of($resourceName)->title()->singular()->__toString(),
-            'pluralLabel' => $class::$pluralLabel ?? Str::of($resourceName)->title()->plural()->__toString(),
+            'icon' => $this->resourceIcon($class),
+            'label' => $this->resourceLabel($class, $resourceName),
+            'pluralLabel' => $this->resourcePluralLabel($class, $resourceName),
             'resource' => $resourceName,
         ]);
     }
@@ -52,9 +51,17 @@ trait Resourceable
     /**
      * Prepare all the navigation fields
      */
-    public function displayNavigationFields()
+    public function displayNavigationFields(): Collection
     {
-
+        return collect($this->allResources())
+            ->map(static function ($item) {
+                return $item['displayInNavigation'] === true
+                    ? $item->forget('displayInNavigation')
+                    : null;
+            })
+            ->filter()
+            ->values()
+            ->groupBy('group');
     }
 
     /**
@@ -115,5 +122,39 @@ trait Resourceable
         return Str::of($file)
             ->explode('.')
             ->first();
+    }
+
+    /**
+     * Get the icon value from a resource
+     */
+    private function resourceIcon(object $class): string
+    {
+        return $class::$icon ?? config('belich.icons.default') ?? '';
+    }
+
+    /**
+     * Get the label value from a resource
+     */
+    private function resourceLabel(object $class, string $resourceName): string
+    {
+        $altLabel = Str::of($resourceName)
+            ->title()
+            ->singular()
+            ->__toString();
+
+        return $class::$label ?? $altLabel;
+    }
+
+    /**
+     * Get the label value from a resource
+     */
+    private function resourcePluralLabel(object $class, string $resourceName): string
+    {
+        $altPluralLabel = Str::of($resourceName)
+            ->title()
+            ->plural()
+            ->__toString();
+
+        return $class::$pluralLabel ?? $altPluralLabel;
     }
 }

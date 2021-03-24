@@ -7,6 +7,7 @@ namespace Daguilarm\Belich\Http\Middleware;
 use Closure;
 use Daguilarm\Belich\Core\Belich;
 use Daguilarm\Belich\Facades\Helper;
+use Illuminate\Http\Request;
 
 final class BelichMiddleware
 {
@@ -16,7 +17,7 @@ final class BelichMiddleware
     /**
      * Set the Belich middleware
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next): Illuminate\Http\Request
     {
         // Authorized access to resource
         if (Belich::accessToResource() === false) {

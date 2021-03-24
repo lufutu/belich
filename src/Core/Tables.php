@@ -11,7 +11,9 @@ abstract class Tables
 {
     public static Collection $table;
 
+    /** @var array<string> */
     public static array $relationships = [];
+    /** @var array<string> */
     public static array $search = [];
     public static bool $displayInNavigation = true;
     public static bool $softDeletes = false;
@@ -27,6 +29,8 @@ abstract class Tables
 
     /**
      * Get the fields displayed by the resource.
+     *
+     * @return array<string>
      */
     abstract public function table(Request $request): array;
 

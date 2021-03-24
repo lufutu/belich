@@ -144,13 +144,14 @@ return [
     |
     | Show the loading icon for ajax queries
     */
-    // 'icons' => [
-    //     'font' => 'fontawesome',
-    //     'loading' => [
-    //         'icon' => 'spin',
-    //         'css' => 'fa-10x text-blue-200',
-    //     ],
-    // ],
+    'icons' => [
+        'font' => 'fontawesome',
+        'default' => 'b-right',
+        'loading' => [
+            'icon' => 'spin',
+            'css' => 'fa-10x text-blue-200',
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------

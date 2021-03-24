@@ -7,11 +7,11 @@ namespace Daguilarm\Belich\Components\Helpers;
 trait Validate
 {
     /**
-     * Validate ip
+     * Validate ip address
      */
-    public function validateIp(?string $ip): bool
+    public function validateIp(?string $ipAddress): bool
     {
-        return filter_var($ip, FILTER_VALIDATE_IP);
+        return filter_var($ipAddress, FILTER_VALIDATE_IP);
     }
 
     /**

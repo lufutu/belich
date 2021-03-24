@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Facade;
 
 final class Helper extends Facade
 {
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
         return 'Helper';
     }
