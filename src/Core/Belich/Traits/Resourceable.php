@@ -41,12 +41,20 @@ trait Resourceable
         return collect([
             'class' => $resourceName,
             'displayInNavigation' => $class::$displayInNavigation,
-            // 'group' => $class::$group,
+            'group' => $class::$group,
             // 'icon' => $class::$icon ?? config('belich.navbar.defaultIcon') ?? '',
-            'label' => $class::$label ?? Str::title($resourceName),
-            'pluralLabel' => $class::$pluralLabel ?? Str::plural(Str::title($resourceName)),
+            'label' => $class::$label ?? Str::of($resourceName)->title(),
+            'pluralLabel' => $class::$pluralLabel ?? Str::of($resourceName)->title()->plural(),
             'resource' => $resourceName,
         ]);
+    }
+
+    /**
+     * Prepare all the navigation fields
+     */
+    public function displayNavigationFields()
+    {
+
     }
 
     /**
@@ -76,19 +84,19 @@ trait Resourceable
     }
 
     /**
-     * Testing path for resources
-     */
-    private function testingResourcesPath(): string
-    {
-        return 'tests/Fixtures/Resources';
-    }
-
-    /**
      * Default path for resources
      */
     private function defaultResourcesPath(): string
     {
         return config('belich.resources');
+    }
+
+    /**
+     * Testing path for resources
+     */
+    private function testingResourcesPath(): string
+    {
+        return 'tests/Fixtures/Resources';
     }
 
     /**
@@ -104,6 +112,8 @@ trait Resourceable
      */
     private function fileName(string $file): string
     {
-        return Str::title(explode('.', $file)[0]);
+        return Str::of($file)
+            ->explode('.')
+            ->first();
     }
 }
