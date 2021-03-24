@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\Belich;
 
+use Daguilarm\Belich\App\View\Components\App;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider as Provider;
 
@@ -21,6 +22,7 @@ final class ServiceProvider extends Provider
         $this->registerBootstrap();
         $this->registerRoutes();
         $this->registerResources();
+        $this->registerComponents();
         // $this->registerConsole();
         // $this->registerMigrations();
     }
@@ -81,6 +83,16 @@ final class ServiceProvider extends Provider
         //Load language translations...
         $this->loadTranslationsFrom(resource_path('lang/vendor/belich'), 'belich');
         $this->loadJsonTranslationsFrom(resource_path('lang/vendor/belich'), 'belich');
+    }
+
+    /**
+     * Register the package components for blade
+     */
+    public function registerComponents()
+    {
+        $this->loadViewComponentsAs('belich', [
+            App::class,
+        ]);
     }
 
     // /**

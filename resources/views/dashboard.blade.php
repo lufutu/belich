@@ -1,4 +1,4 @@
-<x-belich.layout.app>
+<x-belich-app>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -12,4 +12,4 @@
             </div>
         </div>
     </div>
-</x-belich.layout-app>
+</x-belich-app>
