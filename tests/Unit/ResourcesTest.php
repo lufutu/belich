@@ -15,6 +15,7 @@ class ResourcesTest extends TestCase
     public function testGetResourcesFromFolderTest()
     {
         $resources = Belich::allResources('tests/Fixtures/Resources')->count();
+        dd(Belich::allResources('tests/Fixtures/Resources'));
 
         $this->assertEquals($resources, 3);
     }

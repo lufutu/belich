@@ -43,8 +43,8 @@ trait Resourceable
             'displayInNavigation' => $class::$displayInNavigation,
             'group' => $class::$group,
             // 'icon' => $class::$icon ?? config('belich.navbar.defaultIcon') ?? '',
-            'label' => $class::$label ?? Str::of($resourceName)->title(),
-            'pluralLabel' => $class::$pluralLabel ?? Str::of($resourceName)->title()->plural(),
+            'label' => $class::$label ?? Str::of($resourceName)->title()->singular()->__toString(),
+            'pluralLabel' => $class::$pluralLabel ?? Str::of($resourceName)->title()->plural()->__toString(),
             'resource' => $resourceName,
         ]);
     }
