@@ -2,7 +2,9 @@
 
 namespace Daguilarm\Belich\Tests\Fixtures\Users;
 
-final class Table {
-    public string $label = "Usuario";
-    public string $pluralLabel = "Usuarios";
+final class Table
+{
+    public static string $label = "Usuario";
+    public static string $pluralLabel = "Usuarios";
+    public static bool $displayInNavigation = true;
 }

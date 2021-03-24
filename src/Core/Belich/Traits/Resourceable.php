@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\Belich\Core\Belich\Traits;
 
+use Daguilarm\Belich\Facades\Belich;
 use Daguilarm\Belich\Facades\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -12,39 +13,80 @@ use Illuminate\Support\Str;
 trait Resourceable
 {
     /**
-     * Get all the Belich resources for send globaly to the views
+     * Get all the Belich resources
      */
-    public function getResources(?string $testingFolder): Collection
+    public function allResources(): Collection
     {
-        return $this->resourcesFolder($testingFolder)
+        return $this->resourcesFolder()
             ->map(static function ($file) {
                 return $file;
             })->filter(static function ($value) {
                 return $value !== '.' && $value !== '..';
-            })->mapWithKeys(function ($file) use ($testingFolder) {
+            })->mapWithKeys(function ($file) {
                 // Define the current resource
-                $resource = $this->fileName($file);
-                // Get all the values from the resources
-                $resourceClass = $this->resourceValues($testingFolder, $resource);
+                $resourceName = $this->fileName($file);
 
-                return [$resource => $resourceClass];
+                // Get all the navegation values from the current resource
+                return [$resourceName => $this->navigationFields($resourceName)];
             });
+    }
+
+    /**
+     * Get the basic values to generate the navigation links
+     */
+    public function navigationFields(string $resourceName): Collection
+    {
+        $class = app($this->resourceFile($resourceName));
+
+        return collect([
+            'class' => $resourceName,
+            'displayInNavigation' => $class::$displayInNavigation,
+            // 'group' => $class::$group,
+            // 'icon' => $class::$icon ?? config('belich.navbar.defaultIcon') ?? '',
+            'label' => $class::$label ?? Str::title($resourceName),
+            'pluralLabel' => $class::$pluralLabel ?? Str::plural(Str::title($resourceName)),
+            'resource' => $resourceName,
+        ]);
+    }
+
+    /**
+     * Get all the items from a resource
+     */
+    private function resourceFile(string $resourceName): string
+    {
+        return Belich::hasTestingEnvironment()
+            // Only for testing
+            ? Helper::testing_namespace($resourceName)
+            // Current value
+            : Helper::resource_namespace($resourceName);
     }
 
     /**
      * Get all the files from the resources folder (All the resources)
      */
-    private function resourcesFolder(?string $testingFolder): Collection
+    private function resourcesFolder(): Collection
     {
-        $currentFolder = $testingFolder ?? $this->defaultResourcesFolder();
+        $currentFolder = Belich::hasTestingEnvironment()
+            // Testing folder
+            ? $this->testingResourcesPath()
+            // Resource folder
+            : $this->defaultResourcesPath();
 
         return $this->resourcesFolderFiles($currentFolder);
     }
 
     /**
-     * Default resource's folder
+     * Testing path for resources
      */
-    private function defaultResourcesFolder(): string
+    private function testingResourcesPath(): string
+    {
+        return 'tests/Fixtures/Resources';
+    }
+
+    /**
+     * Default path for resources
+     */
+    private function defaultResourcesPath(): string
     {
         return config('belich.resources');
     }
@@ -55,20 +97,6 @@ trait Resourceable
     private function resourcesFolderFiles(string $folder): Collection
     {
         return collect(scandir($folder));
-    }
-
-    /**
-     * Get all the items from a resource
-     */
-    private function resourceValues(?string $testingFolder, string $resourceName): Object
-    {
-        $file = $testingFolder
-            // Only for testing
-            ? Helper::testing_namespace($resourceName)
-            // Current value
-            : Helper::resource_namespace($resourceName);
-
-        return app($file);
     }
 
     /**

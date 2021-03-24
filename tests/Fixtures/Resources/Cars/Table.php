@@ -4,6 +4,7 @@ namespace Daguilarm\Belich\Tests\Fixtures\Cars;
 
 final class Table
 {
-    public string $label = "Coche";
-    public string $pluralLabel = "Coches";
+    public static string $label = "Coche";
+    public static string $pluralLabel = "Coches";
+    public static bool $displayInNavigation = true;
 }
