@@ -39,7 +39,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Daguilarm\\Belich\\ServiceProvider"
+                "Daguilarm\\Belich\\ServiceProvider",
+                "Daguilarm\\Belich\\Providers\\ComponentsServiceProvider"
             ],
             "aliases": {
                 "Belich": "Daguilarm\\Belich\\BelichFacade",

@@ -7,3 +7,5 @@ mix.js('resources/js/belich.js', 'public/js')
         processCssUrls: false,
         postCss: [tailwindcss('./tailwind.config.js')],
 });
+
+mix.copy('public', '../../../../../Users/daguilarm/Sites/proyecto/public/');
