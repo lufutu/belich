@@ -19,10 +19,10 @@
     </head>
     <body>
         {{-- Container --}}
-        <div class="flex bg-gray-100" x-data="{isClose: true, toggle: true}">
+        <div class="flex" x-data="{isClose: true, toggle: true}">
             {{-- Sidebar --}}
             <x:belich::sidebar></x:belich::sidebar>
-            {{-- Content --}}
+            {{-- Main Container --}}
             <div class="flex-1 h-full min-h-screen">
                 {{-- Navbar --}}
                 <x:belich::navbar></x:belich::navbar>
