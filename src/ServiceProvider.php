@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\Belich;
 
-use Daguilarm\Belich\App\View\Components\App;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as Provider;
@@ -35,14 +34,6 @@ final class ServiceProvider extends Provider
         //Belich Facade
         $this->app->register(\Daguilarm\Belich\Facades\BelichProvider::class);
         AliasLoader::getInstance()->alias('Belich', \Daguilarm\Belich\Facades\Belich::class);
-
-        // //Chart Facade
-        // $this->app->register(\Daguilarm\Belich\Facades\ChartProvider::class);
-        // AliasLoader::getInstance()->alias('Chart', \Daguilarm\Belich\Facades\Chart::class);
-
-        // //Icon Facade
-        // $this->app->register(\Daguilarm\Belich\Facades\IconProvider::class);
-        // AliasLoader::getInstance()->alias('Icon', \Daguilarm\Belich\Facades\Icon::class);
 
         // //Helper Facade
         $this->app->register(\Daguilarm\Belich\Facades\HelperProvider::class);

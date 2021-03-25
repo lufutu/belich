@@ -3,7 +3,7 @@
         <div class="h-20 bg-blue-500 text-white flex items-center justify-center">
             <a class="block px-5 text-white text-lg h-9 flex items-center justify-center" href="javascript:;">
                 <span class="bg-blue-700 rounded-full h-9 w-9 flex items-center justify-center">
-                    <i class="fas fa-spa fa-fw"></i>
+                    <i class="fas fa-home fa-fw"></i>
                 </span>
                 <span class="hidden-item px-2">Admin</span>
             </a>

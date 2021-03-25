@@ -8,10 +8,11 @@
         <title>{{ config('belich.name', 'Laravel') }}</title>
 
         {{-- Fonts --}}
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         {{-- Css styles --}}
         <link rel="stylesheet" href="{{ asset('css/belich.css') }}">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css"/>
         @livewireStyles
 
         {{-- Custom scripts --}}
@@ -31,7 +32,7 @@
             </div>
         </div>
         {{-- Javascript libraries --}}
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     </body>
 </html>
 
