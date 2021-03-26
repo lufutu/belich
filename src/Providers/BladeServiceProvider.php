@@ -21,6 +21,17 @@ final class BladeServiceProvider extends Provider
          *
          * @return string
          */
+        Blade::directive('icon', static function ($icon) {
+            [$icon, $class] = static::filterArgument($icon);
+
+            return e(svg('heroicon-s-' . $icon, $class));
+        });
+
+        /**
+         * Create a @route directive
+         *
+         * @return string
+         */
         Blade::directive('route', static function ($route) {
             return e(route(static::filterArgument($route)));
         });
@@ -69,6 +80,12 @@ final class BladeServiceProvider extends Provider
      */
     public static function filterArgument(string $value)
     {
-        return str_replace("'", '', $value);
+        $filter = Str::of($value)
+            ->replace("'", '')
+            ->explode(',');
+
+        return count($filter) === 1
+            ? $filter[0]
+            : $filter;
     }
 }

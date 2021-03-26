@@ -1,7 +1,6 @@
 .is-close {
-    text-align: center;
+    @apply text-center;
 }
-
 .is-close .hidden-item {
-    display: none;
+    @apply hidden;
 }

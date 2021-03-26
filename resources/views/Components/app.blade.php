@@ -12,7 +12,11 @@
 
         {{-- Css styles --}}
         <link rel="stylesheet" href="@mix('css/belich.css')">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css"/>
+        {{-- Fontawesome --}}
+        @if(config('belich.icons') === 'fontawesome')
+            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css"/>
+        @endif
+        {{-- Livwire --}}
         @livewireStyles
 
         {{-- Custom scripts --}}
@@ -22,7 +26,7 @@
         {{-- Container --}}
         <div class="flex" x-data="{isClose: true, toggle: true}">
             {{-- Sidebar --}}
-            <x:belich::sidebar></x:belich::sidebar>
+            <x:belich::sidebar.sidebar></x:belich::sidebar.sidebar>
             {{-- Main Container --}}
             <div class="flex-1 h-full min-h-screen">
                 {{-- Navbar --}}

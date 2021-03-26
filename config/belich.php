@@ -31,9 +31,9 @@ return [
     |
     */
     'middleware' => [
+        'auth',
         'https',
         'web',
-        'auth',
     ],
 
     /*
@@ -142,16 +142,9 @@ return [
     | Icons
     |--------------------------------------------------------------------------
     |
-    | Show the loading icon for ajax queries
+    | Define the icon set from: ['fontawesome', 'heroicons']
     */
-    'icons' => [
-        'font' => 'fontawesome',
-        'default' => 'b-right',
-        'loading' => [
-            'icon' => 'spin',
-            'css' => 'fa-10x text-blue-200',
-        ],
-    ],
+    'icons' => 'heroicons',
 
     /*
     |--------------------------------------------------------------------------
