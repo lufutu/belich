@@ -11,12 +11,12 @@
         <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         {{-- Css styles --}}
-        <link rel="stylesheet" href="{{ asset('css/belich.css') }}">
+        <link rel="stylesheet" href="@mix('css/belich.css')">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css"/>
         @livewireStyles
 
         {{-- Custom scripts --}}
-        <script src="{{ asset('js/belich.js') }}" defer></script>
+        <script src="@mix('js/belich.js')" defer></script>
     </head>
     <body>
         {{-- Container --}}

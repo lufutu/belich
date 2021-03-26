@@ -8,4 +8,4 @@ mix.js('resources/js/belich.js', 'public/js')
         postCss: [tailwindcss('./tailwind.config.js')],
 });
 
-mix.copy('public', '../../../../../Users/daguilarm/Sites/proyecto/public/');
+mix.copy('public', '../../../../../Users/daguilarm/Sites/proyecto/public/vendor/belich/');

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\Belich\Providers;
 
-use BladeUI\Icons\Factory;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as Provider;
 
