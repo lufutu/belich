@@ -2,7 +2,7 @@
     href="javascript:;"
     class="flex items-center p-3 border-b border-gray-900 hover:text-orange-400"
     :class="isClose ? 'justify-center' : 'justify-start'"
-    @click="parent.toggle = !parent.toggle"
+    @click="toggle=!toggle"
 >
     @isset($icon)
         <div class="flex flex-wrap content-center">
@@ -15,11 +15,11 @@
     >
         {{ $text }}
     </div>
-    <i class="hidden-item fas" :class="{'fa-angle-right': parent.toggle, 'fa-angle-down': !parent.toggle }"></i>
+    <i class="hidden-item fas" :class="{'fa-angle-right': toggle, 'fa-angle-down': !toggle }"></i>
 </a>
 <ul
     class="hidden-item bg-gray-900"
-    :class="{'hidden': parent.toggle}"
+    :class="{'hidden': toggle}"
 >
     {{ $slot }}
 </ul>

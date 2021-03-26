@@ -19,9 +19,9 @@
             </li>
             <li>
                 <x:belich::sidebar.group text="Group 1" icon="heroicon-s-globe">
-                    <x:belich::sidebar.link text="Text 1" :url="route('belich.dashboard')"></x:belich::sidebar.link>
-                    <x:belich::sidebar.link text="Text 2" :url="route('belich.dashboard')"></x:belich::sidebar.link>
-                    <x:belich::sidebar.link text="Text 3" :url="route('belich.dashboard')"></x:belich::sidebar.link>
+                    <x:belich::sidebar.group-link text="Text 1" :url="route('belich.dashboard')"></x:belich::sidebar.group-link>
+                    <x:belich::sidebar.group-link text="Text 2" :url="route('belich.dashboard')"></x:belich::sidebar.group-link>
+                    <x:belich::sidebar.group-link text="Text 3" :url="route('belich.dashboard')"></x:belich::sidebar.group-link>
                 </x:belich::sidebar.group>
             </li>
         </ul>
