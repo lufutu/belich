@@ -1,4 +1,10 @@
-<div id="menu" class="bg-gray-800 flex flex-col justify-between" :class="{'is-close': isClose, 'w-16': isClose, 'w-48': !isClose}" @mouseover="isClose=false" @mouseleave="isClose=true">
+<div
+    id="menu"
+    class="bg-gray-800 flex flex-col justify-between"
+    :class="{'is-close': isClose, 'w-16 transition-all duration-300 ease-in-out': isClose, 'w-48': !isClose}"
+    @mouseover="isClose=false"
+    @mouseleave="isClose=true"
+>
     <div>
         <div class="h-20 bg-blue-500 text-white flex items-center justify-center">
             <a class="block px-5 text-white text-lg h-9 flex items-center justify-center" href="javascript:;">
