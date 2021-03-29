@@ -1,6 +1,6 @@
 <a
     href="{{ $url }}"
-    class="flex content-center block p-3 border-b border-gray-900 text-white hover:text-yellow-200"
+    class="flex content-center block p-3 border-b border-gray-900 text-white hover:text-yellow-400"
     :class="isClose ? 'justify-center' : 'justify-start'"
 >
     @isset($icon)

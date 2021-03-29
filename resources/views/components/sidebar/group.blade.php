@@ -1,6 +1,6 @@
 <a
     href="javascript:;"
-    class="flex items-center p-3 border-b border-gray-900 hover:text-orange-400"
+    class="flex items-center p-3 border-b border-gray-900 hover:text-yellow-400"
     :class="isClose ? 'justify-center' : 'justify-start'"
     @click="toggle=!toggle"
 >
