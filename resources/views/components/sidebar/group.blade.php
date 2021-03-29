@@ -4,6 +4,7 @@
     :class="isClose ? 'justify-center' : 'justify-start'"
     @click="toggle = !toggle"
 >
+
     {{-- Icon --}}
     @isset($icon)
         <div class="flex flex-wrap content-center">
@@ -11,11 +12,12 @@
         </div>
     @endisset
 
-    {{-- Text --}}
+    {{-- Text block --}}
     <div
         class="flex ml-2"
         :class="isClose ? 'hidden-item' : ''"
     >
+        {{-- Text --}}
         {{ $text }}
 
         {{-- Conditional icon --}}
@@ -23,8 +25,12 @@
             @svg('heroicon-s-chevron-down', ['class' => 'ml-1 h-4 w-4', 'x-show' => 'toggle'])
             @svg('heroicon-s-chevron-up', ['class' => 'ml-1 h-4 w-4', 'x-show' => '!toggle'])
         </div>
+
     </div>
+
 </a>
+
+{{-- Group container --}}
 <ul
     class="hidden-item bg-gray-900"
     :class="{'hidden': toggle}"

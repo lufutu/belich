@@ -1,17 +1,20 @@
+{{-- Main container --}}
 <div
     id="menu"
     class="bg-gray-700"
     @mouseover="isClose = false"
     @mouseleave="isClose = true"
 >
+    {{-- Base container --}}
     <div
         class="flex flex-col justify-between"
         :class="{'is-close': isClose, 'w-16': isClose, 'w-48': !isClose}"
     >
+
         {{-- Home --}}
         <x:belich::sidebar.home :url="route('belich.dashboard')" :icon="svg('heroicon-s-home', 'h-5 w-5')"></x:belich::sidebar.home>
 
-        {{-- Resources links --}}
+        {{-- Link container --}}
         <ul class="text-white">
             <li>
                 <x:belich::sidebar.link :url="route('belich.dashboard')" icon="heroicon-s-home">
@@ -26,5 +29,7 @@
                 </x:belich::sidebar.group>
             </li>
         </ul>
+
     </div>
+
 </div>
