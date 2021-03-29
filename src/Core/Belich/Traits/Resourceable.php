@@ -41,7 +41,7 @@ trait Resourceable
         return collect([
             'class' => $resourceName,
             'displayInNavigation' => $class::$displayInNavigation,
-            'group' => $class::$group ?? null,
+            'group' => $class::$group ?? $title,
             'icon' => $this->resourceIcon($class),
             'label' => $this->resourceLabel($class, $resourceName),
             'pluralLabel' => $title,
@@ -62,7 +62,7 @@ trait Resourceable
             })
             ->filter()
             ->values()
-            ->groupBy('group');
+            ->groupBy(['group']);
     }
 
     /**
