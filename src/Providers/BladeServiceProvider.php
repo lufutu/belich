@@ -22,7 +22,7 @@ final class BladeServiceProvider extends Provider
          * @return string
          */
         Blade::directive('icon', static function ($icon) {
-            [$icon, $class] = static::filterArgument($icon);
+            [$icon, $class] = self::filterArgument($icon);
 
             return e(svg('heroicon-s-' . $icon, $class));
         });
@@ -33,7 +33,7 @@ final class BladeServiceProvider extends Provider
          * @return string
          */
         Blade::directive('route', static function ($route) {
-            return e(route(static::filterArgument($route)));
+            return e(route(self::filterArgument($route)));
         });
 
         /**
@@ -42,7 +42,7 @@ final class BladeServiceProvider extends Provider
          * @return string
          */
         Blade::directive('mix', static function ($file) {
-            $file = static::filterArgument($file);
+            $file = self::filterArgument($file);
             $path = Belich::hasProductionEnvironment()
                 ? '/vendor/belich/' . $file . '?v=' . Str::random(20)
                 : '/vendor/belich/' . $file;
@@ -63,7 +63,7 @@ final class BladeServiceProvider extends Provider
          * @return string
          */
         Blade::directive('trans', static function ($text) {
-            return e(trans('belich::' . static::filterArgument($text)));
+            return e(trans('belich::' . self::filterArgument($text)));
         });
     }
 
@@ -72,7 +72,7 @@ final class BladeServiceProvider extends Provider
      */
     public function register(): void
     {
-        //
+        
     }
 
     /**

@@ -23,6 +23,6 @@ final class ComponentsServiceProvider extends Provider
      */
     public function register(): void
     {
-        //
+        
     }
 }

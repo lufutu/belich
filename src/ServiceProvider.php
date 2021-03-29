@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Daguilarm\Belich;
 
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as Provider;
 
 final class ServiceProvider extends Provider

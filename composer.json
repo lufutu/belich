@@ -51,6 +51,7 @@
         }
     },
     "scripts": {
+        "phpinsights": "vendor/bin/phpinsights --fix",
         "psalm": "vendor/bin/psalm",
         "test": "vendor/bin/phpunit --colors=always",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
