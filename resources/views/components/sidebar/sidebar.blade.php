@@ -13,7 +13,10 @@
     >
 
         {{-- Home --}}
-        <x:belich::sidebar.home :url="route('belich.dashboard')" :icon="svg('heroicon-s-home', 'h-5 w-5')"></x:belich::sidebar.home>
+        <x:belich::sidebar.home
+            :url="route('belich.dashboard')"
+            :icon="svg('heroicon-s-home', 'h-5 w-5')"
+        />
 
         {{-- Link container --}}
         <ul class="text-white">
@@ -31,14 +34,13 @@
                         <x:belich::sidebar.link
                             :url="route('belich.dashboard')"
                             :icon="$resource->first()->get('icon')"
-                        >
-                            {{ $resource->first()->get('pluralLabel') }}
-                        </x:belich::sidebar.link>
+                            :text="$resource->first()->get('pluralLabel')"
+                        />
 
                     {{-- two level resource --}}
                     @else
                         <x:belich::sidebar.group
-                            :text="$resource->first()->get('pluralLabel')"
+                            :text="$resource->first()->get('group')"
                             :icon="$resource->first()->get('icon')"
                         >
 
@@ -46,9 +48,8 @@
                             @foreach($resource as $item)
                                 <x:belich::sidebar.group-link
                                     :url="route('belich.dashboard')"
-                                >
-                                    {{ $item->get('pluralLabel') }}
-                                </x:belich::sidebar.group-link>
+                                    :text="$item->get('pluralLabel')"
+                                />
                             @endforeach
 
                         </x:belich::sidebar.group>

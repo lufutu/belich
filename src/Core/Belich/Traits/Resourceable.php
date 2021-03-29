@@ -27,8 +27,7 @@ trait Resourceable
 
                 // Get all the navegation values from the current resource
                 return [$resourceName => $this->navigationFields($resourceName)];
-            })
-            ->sortBy(['pluralLabel']);
+            });
     }
 
     /**
