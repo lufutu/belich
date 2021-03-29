@@ -41,14 +41,12 @@
                     @else
 
                         {{-- Set the group elements --}}
-                        @php
-                            $group = Belich::renderGroupElements($resource);
-                        @endphp
+                        @php $group = Belich::renderGroupElements($resource); @endphp
 
                         {{-- Get the group elements --}}
                         <x:belich::sidebar.group
-                            :text="$group->keys()->first()"
-                            :icon="$group->first()"
+                            :text="$group['text']"
+                            :icon="$group['icon']"
                         >
 
                             {{-- List of items --}}

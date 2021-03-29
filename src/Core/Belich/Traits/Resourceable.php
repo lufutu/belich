@@ -69,13 +69,14 @@ trait Resourceable
     /**
      * Render a group of resources
      */
-    public function renderGroupElements(Collection $group): Collection
+    public function renderGroupElements(Collection $group): array
     {
-        return $group->mapWithKeys(function ($items) {
+        return $group->map(function ($items) {
             return $items['icon']
-                ? [$items['group'] => $items['icon']]
+                ? ['text' => $items['group'], 'icon' => $items['icon']]
                 : [];
-        });
+        })
+        ->first();
     }
 
     /**
