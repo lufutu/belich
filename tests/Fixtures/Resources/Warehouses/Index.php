@@ -2,7 +2,7 @@
 
 namespace Daguilarm\Belich\Tests\Fixtures\Warehouses;
 
-final class Table
+final class Index
 {
     public static string $group = "Sección 2";
     public static string $label = "Almacén";

@@ -1,4 +1,4 @@
-<div class="h-20 bg-blue-500 flex items-center justify-center">
+<div class="h-20 bg-green-500 flex items-center justify-center">
 
     {{-- Link --}}
     <a
@@ -7,7 +7,7 @@
     >
 
         {{-- Icon --}}
-        <span class=" bg-blue-700 hover:bg-white text-white hover:text-blue-700 rounded-full h-10 w-10 flex items-center justify-center">
+        <span class=" bg-green-700 hover:bg-white text-white hover:text-green-700 rounded-full h-10 w-10 flex items-center justify-center">
             {{ $icon }}
         </span>
 

@@ -36,14 +36,15 @@ trait Resourceable
     public function navigationFields(string $resourceName): Collection
     {
         $class = app($this->resourceFile($resourceName));
+        $title = $this->resourcePluralLabel($class, $resourceName);
 
         return collect([
             'class' => $resourceName,
             'displayInNavigation' => $class::$displayInNavigation,
-            'group' => $class::$group,
+            'group' => $class::$group ?? null,
             'icon' => $this->resourceIcon($class),
             'label' => $this->resourceLabel($class, $resourceName),
-            'pluralLabel' => $this->resourcePluralLabel($class, $resourceName),
+            'pluralLabel' => $title,
             'resource' => $resourceName,
         ]);
     }

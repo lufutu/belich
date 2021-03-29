@@ -14,6 +14,8 @@
         {{-- Home --}}
         <x:belich::sidebar.home :url="route('belich.dashboard')" :icon="svg('heroicon-s-home', 'h-5 w-5')"></x:belich::sidebar.home>
 
+        {{ dd(Belich::displayNavigationFields()) }}
+
         {{-- Link container --}}
         <ul class="text-white">
             <li>

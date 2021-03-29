@@ -15,19 +15,19 @@ trait Paths
     }
 
     /**
-     * Get the resource namespace [\\App\\Belich\\Resources\\ResourceName\\Table::class]
+     * Get the resource namespace [\\App\\Belich\\Resources\\ResourceName\\Index::class]
      */
     public function resource_namespace(string $resourceName): string
     {
-        return sprintf('\\App\\Belich\\Resources\\%s\\Table', $resourceName);
+        return sprintf('\\App\\Belich\\Resources\\%s\\Index', $resourceName);
     }
 
     /**
-     * Get the testing resource fixture namespace [\\Daguilarm\\Belich\\Tests\\Fixtures\\ResourceName\\Table::class]
+     * Get the testing resource fixture namespace [\\Daguilarm\\Belich\\Tests\\Fixtures\\ResourceName\\Index::class]
      */
     public function testing_namespace(string $resourceName): string
     {
-        return sprintf('\\Daguilarm\\Belich\\Tests\\Fixtures\\%s\\Table', $resourceName);
+        return sprintf('\\Daguilarm\\Belich\\Tests\\Fixtures\\%s\\Index', $resourceName);
     }
 
     /**

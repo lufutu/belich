@@ -2,7 +2,7 @@
 
 namespace Daguilarm\Belich\Tests\Fixtures\Cars;
 
-final class Table
+final class Index
 {
     public static string $group = "Sección 1";
     public static string $label = "Coche";
