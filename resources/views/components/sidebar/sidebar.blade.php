@@ -39,9 +39,16 @@
 
                     {{-- two level resource --}}
                     @else
+
+                        {{-- Set the group elements --}}
+                        @php
+                            $group = Belich::renderGroupElements($resource);
+                        @endphp
+
+                        {{-- Get the group elements --}}
                         <x:belich::sidebar.group
-                            :text="$resource->first()->get('group')"
-                            :icon="$resource->first()->get('icon')"
+                            :text="$group->keys()->first()"
+                            :icon="$group->first()"
                         >
 
                             {{-- List of items --}}

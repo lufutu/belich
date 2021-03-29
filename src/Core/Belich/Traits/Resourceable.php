@@ -67,6 +67,18 @@ trait Resourceable
     }
 
     /**
+     * Render a group of resources
+     */
+    public function renderGroupElements(Collection $group): Collection
+    {
+        return $group->mapWithKeys(function ($items) {
+            return $items['icon']
+                ? [$items['group'] => $items['icon']]
+                : [];
+        });
+    }
+
+    /**
      * Get all the items from a resource
      */
     private function resourceFile(string $resourceName): string
