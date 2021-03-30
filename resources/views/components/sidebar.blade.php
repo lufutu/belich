@@ -14,7 +14,7 @@
     >
 
         {{-- Home icon --}}
-        <x-belich::sidebar.home
+        <x-belich-sidebar-home
             :url="route('belich.dashboard')"
             :icon="svg('heroicon-s-home', 'h-5 w-5')"
         />
@@ -32,7 +32,7 @@
                     @if($resource->count() <= 1)
 
                         {{-- Get the unique item --}}
-                        <x-belich::sidebar.link
+                        <x-belich-sidebar-link
                             :url="route('belich.dashboard')"
                             :icon="$resource->first()->get('icon')"
                             :text="$resource->first()->get('pluralLabel')"
@@ -42,17 +42,17 @@
                     @else
 
                         {{-- Get the group elements. See Daguilarm\Belich\App\View\Components\Group --}}
-                        <x-belich::sidebar.group :resource="$resource">
+                        <x-belich-sidebar-group :resource="$resource">
 
                             {{-- List of items --}}
                             @foreach($resource as $item)
-                                <x-belich::sidebar.group-link
+                                <x-belich-sidebar-group-link
                                     :url="route('belich.dashboard')"
                                     :text="$item->get('pluralLabel')"
                                 />
                             @endforeach
 
-                        </x-belich::sidebar.group>
+                        </x-belich-sidebar-group>
                     @endif
 
                 </li>
