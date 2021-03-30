@@ -10,7 +10,7 @@
     {{-- Base container --}}
     <div
         class="flex flex-col justify-between"
-        :class="{'is-close': isClose, '{{ config('belich-theme.sidebar.widthClose') }}': isClose, '{{ config('belich-theme.sidebar.widthOpen') }}': !isClose}"
+        :class="{'is-close': isClose, '{{ config('belich-theme.sidebar.widthClose') }} transition-all duration-400 ease-out': isClose, '{{ config('belich-theme.sidebar.widthOpen') }}': !isClose}"
     >
 
         {{-- Home icon --}}
