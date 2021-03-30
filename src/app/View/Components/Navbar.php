@@ -14,6 +14,6 @@ class Navbar extends Component
      */
     public function render()
     {
-        return view('belich::components.navbar.navbar');
+        return view('belich::components.navbar');
     }
 }

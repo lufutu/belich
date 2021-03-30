@@ -15,7 +15,7 @@ class Sidebar extends Component
      */
     public function render()
     {
-        return view('belich::components.sidebar.sidebar');
+        return view('belich::components.sidebar');
     }
 
     /**

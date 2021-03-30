@@ -57,9 +57,6 @@ final class ServiceProvider extends Provider
     {
         // Dashboard routes
         require_once __DIR__ . '/../routes/ResolveRoutes.php';
-
-        // Jetstream routes
-        require_once __DIR__ . '/../routes/JetstreamRoutes.php';
     }
 
     /**
