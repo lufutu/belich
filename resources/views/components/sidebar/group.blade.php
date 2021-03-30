@@ -8,22 +8,22 @@
         :class="{ 'justify-center': $parent.isClose, 'justify-start': !$parent.isClose }"
     >
 
-        {{-- Icon --}}
+        {{-- Group Icon --}}
         @isset($icon)
             <div class="flex flex-wrap content-center">
                 @svg($icon, 'h-5 w-5')
             </div>
         @endisset
 
-        {{-- Text block --}}
+        {{-- Group block --}}
         <div
             class="flex ml-2"
             :class="{ 'hidden-item': $parent.isClose }"
         >
-            {{-- Text --}}
+            {{-- Group name --}}
             {{ $text }}
 
-            {{-- Conditional icon --}}
+            {{-- Conditional icon: up and down --}}
             <div class="flex flex-wrap content-center">
                 <svg
                     fill="currentColor"
@@ -39,7 +39,7 @@
 
     </a>
 
-    {{-- Group container --}}
+    {{-- Group container for the items from the next level (sublevel) --}}
     <ul
         class="bg-gray-900"
         :class="{ 'hidden': toggle || $parent.isClose }"

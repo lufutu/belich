@@ -2,11 +2,10 @@
 
 namespace Daguilarm\Belich\App\View\Components;
 
-use Daguilarm\Belich\Facades\Belich;
 use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 
-class Sidebar extends Component
+class Container extends Component
 {
     /**
      * Get the view / contents that represent the component.
@@ -15,14 +14,6 @@ class Sidebar extends Component
      */
     public function render()
     {
-        return view('belich::components.sidebar.sidebar');
-    }
-
-    /**
-     * Set the $resources in the component view
-     */
-    public function resources()
-    {
-        return Belich::displayNavigation();
+        return view('belich::components.container');
     }
 }

@@ -12,32 +12,44 @@
 
         {{-- Css styles --}}
         <link rel="stylesheet" href="@mix('css/belich.css')">
+
         {{-- Fontawesome --}}
         @if(config('belich.icons') === 'fontawesome')
             <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css"/>
         @endif
+
         {{-- Livwire --}}
         @livewireStyles
 
         {{-- Custom scripts --}}
         <script src="@mix('js/belich.js')" defer></script>
+
     </head>
     <body>
+
         {{-- Container --}}
         <div class="flex" x-data="{isClose: true, toggle: true}">
+
             {{-- Sidebar --}}
-            <x:belich::sidebar.sidebar />
+            <x-belich-sidebar />
+
             {{-- Main Container --}}
             <div class="flex-1 h-full min-h-screen">
+
                 {{-- Navbar --}}
-                <x:belich::navbar.navbar />
+                <x-belich-navbar />
+
                 {{-- Container --}}
-                <x:belich::container />
+                <x-belich-container />
+
             </div>
+
         </div>
+
         {{-- Javascript libraries --}}
         <script src="//cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@1.1.x/dist/component.min.js" defer></script>
         <script src="//cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
     </body>
 </html>
 
