@@ -14,9 +14,9 @@ final class ServiceProvider extends Provider
      */
     public function boot(): void
     {
-        // if ($this->app->runningInConsole()) {
-        //     $this->registerPublishing();
-        // }
+        if ($this->app->runningInConsole()) {
+            $this->registerPublishing();
+        }
 
         $this->registerBootstrap();
         $this->registerRoutes();
@@ -46,8 +46,8 @@ final class ServiceProvider extends Provider
     {
         // Middleware
         $this->app['router']->pushMiddlewareToGroup('https', \Daguilarm\Belich\Http\Middleware\HttpsMiddleware::class);
-        // $this->app['router']->pushMiddlewareToGroup('belich', \Daguilarm\Belich\Http\Middleware\BelichMiddleware::class);
-        // $this->app['router']->pushMiddlewareToGroup('minify', \Daguilarm\Belich\Http\Middleware\MinifyMiddleware::class);
+        $this->app['router']->pushMiddlewareToGroup('belich', \Daguilarm\Belich\Http\Middleware\BelichMiddleware::class);
+        $this->app['router']->pushMiddlewareToGroup('minify', \Daguilarm\Belich\Http\Middleware\MinifyMiddleware::class);
     }
 
     /**
@@ -72,63 +72,63 @@ final class ServiceProvider extends Provider
         $this->loadJsonTranslationsFrom(resource_path('lang/vendor/belich'), 'belich');
     }
 
-    // /**
-    //  * Register the package's publishable resources.
-    //  */
-    // protected function registerPublishing(): void
-    // {
-    //     //Publish the config file
-    //     $this->publishes([
-    //         __DIR__ . '/../config/belich.php' => config_path('belich.php'),
-    //         __DIR__ . '/../stubs/validate-form.stub' => config_path('belich/stubs/validate-form.stub'),
-    //     ]);
+    /**
+     * Register the package's publishable resources.
+     */
+    protected function registerPublishing(): void
+    {
+        //Publish the config file
+        $this->publishes([
+            __DIR__ . '/../config/belich.php' => config_path('belich.php'),
+            // __DIR__ . '/../stubs/validate-form.stub' => config_path('belich/stubs/validate-form.stub'),
+        ]);
 
-    //     //Publish the views
-    //     $this->publishes([
-    //         __DIR__ . '/../resources/views/actions' => base_path('resources/views/vendor/belich/actions'),
-    //         __DIR__ . '/../resources/views/auth' => base_path('resources/views/vendor/belich/auth'),
-    //         __DIR__ . '/../resources/views/cards' => base_path('resources/views/vendor/belich/cards'),
-    //         __DIR__ . '/../resources/views/pages' => base_path('resources/views/vendor/belich/pages'),
-    //         __DIR__ . '/../resources/views/partials' => base_path('resources/views/vendor/belich/partials'),
-    //         __DIR__ . '/../resources/views/components' => base_path('resources/views/vendor/belich/components'),
-    //         __DIR__ . '/../resources/views/dashboard' => base_path('resources/views/vendor/belich/dashboard'),
-    //     ]);
+        //Publish the views
+        $this->publishes([
+            // __DIR__ . '/../resources/views/actions' => base_path('resources/views/vendor/belich/actions'),
+            // __DIR__ . '/../resources/views/auth' => base_path('resources/views/vendor/belich/auth'),
+            // __DIR__ . '/../resources/views/cards' => base_path('resources/views/vendor/belich/cards'),
+            // __DIR__ . '/../resources/views/pages' => base_path('resources/views/vendor/belich/pages'),
+            // __DIR__ . '/../resources/views/partials' => base_path('resources/views/vendor/belich/partials'),
+            __DIR__ . '/../resources/views/components' => base_path('resources/views/vendor/belich/components'),
+            // __DIR__ . '/../resources/views/dashboard' => base_path('resources/views/vendor/belich/dashboard'),
+        ]);
 
-    //     //Publish the localization files
-    //     $this->publishes([
-    //         __DIR__ . '/../resources/lang' => base_path('resources/lang/vendor/belich'),
-    //     ]);
+        //Publish the localization files
+        $this->publishes([
+            __DIR__ . '/../resources/lang' => base_path('resources/lang/vendor/belich'),
+        ]);
 
-    //     //Publish the public folder
-    //     $this->publishes([
-    //         __DIR__ . '/../public/' => public_path('vendor/belich'),
-    //     ]);
+        //Publish the public folder
+        $this->publishes([
+            __DIR__ . '/../public/' => public_path('vendor/belich'),
+        ]);
 
-    //     //Publish the belich directory and the dashboard constructor
-    //     $this->publishes([
-    //         //Set the resources
-    //         __DIR__ . '/../stubs/routes.stub' => base_path('app/Belich/Routes.php'),
-    //     ]);
+        //Publish the belich directory and the dashboard constructor
+        $this->publishes([
+            //Set the resources
+            __DIR__ . '/../stubs/routes.stub' => base_path('app/Belich/Routes.php'),
+        ]);
 
-    //     //Publish the belich default resource: User
-    //     $this->publishes([
-    //         //Set the resources
-    //         __DIR__ . '/../stubs/defaults/user_resource.stub' => base_path('app/Belich/Resources/User.php'),
-    //         __DIR__ . '/../stubs/defaults/profile_resource.stub' => base_path('app/Belich/Resources/Profile.php'),
-    //     ]);
+        // //Publish the belich default resource: User
+        // $this->publishes([
+        //     //Set the resources
+        //     __DIR__ . '/../stubs/defaults/user_resource.stub' => base_path('app/Belich/Resources/User.php'),
+        //     __DIR__ . '/../stubs/defaults/profile_resource.stub' => base_path('app/Belich/Resources/Profile.php'),
+        // ]);
 
-    //     //Publish the belich default policy: User
-    //     $this->publishes([
-    //         //Set the resources
-    //         __DIR__ . '/../stubs/defaults/user_policy.stub' => base_path('app/Policies/UserPolicy.php'),
-    //     ]);
+        // //Publish the belich default policy: User
+        // $this->publishes([
+        //     //Set the resources
+        //     __DIR__ . '/../stubs/defaults/user_policy.stub' => base_path('app/Policies/UserPolicy.php'),
+        // ]);
 
-    //     //Publish the belich dashboard
-    //     $this->publishes([
-    //         //Set the resources
-    //         __DIR__ . '/../stubs/dashboard.stub' => base_path('app/Belich/Dashboard.php'),
-    //     ]);
-    // }
+        // //Publish the belich dashboard
+        // $this->publishes([
+        //     //Set the resources
+        //     __DIR__ . '/../stubs/dashboard.stub' => base_path('app/Belich/Dashboard.php'),
+        // ]);
+    }
 
     // /**
     //  * Register the package console commands
