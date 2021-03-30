@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\Belich\Core\Belich\Traits;
 
-trait Environmentable
+trait Environments
 {
     /**
      * Check for a testing environment

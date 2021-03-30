@@ -72,7 +72,6 @@ final class BladeServiceProvider extends Provider
      */
     public function register(): void
     {
-        
     }
 
     /**

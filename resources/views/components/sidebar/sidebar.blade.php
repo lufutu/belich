@@ -22,7 +22,7 @@
         <ul class="text-white">
 
             {{-- Get all the navigation resources --}}
-            @foreach(Belich::displayNavigationFields() as $resource)
+            @foreach(Belich::displayNavigation() as $resource)
 
                 {{-- Items lists --}}
                 <li>
@@ -41,7 +41,7 @@
                     @else
 
                         {{-- Set the group elements --}}
-                        @php $group = Belich::renderGroupElements($resource); @endphp
+                        @php $group = Belich::displayGroup($resource); @endphp
 
                         {{-- Get the group elements --}}
                         <x:belich::sidebar.group

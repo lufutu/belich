@@ -9,80 +9,12 @@ use Daguilarm\Belich\Facades\Helper;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
-trait Resourceable
+trait ResourcesAuxiliar
 {
-    /**
-     * Get all the Belich resources
-     */
-    public function allResources(): Collection
-    {
-        return $this->resourcesFolder()
-            ->map(static function ($file) {
-                return $file;
-            })->filter(static function ($value) {
-                return $value !== '.' && $value !== '..';
-            })->mapWithKeys(function ($file) {
-                // Define the current resource
-                $resourceName = $this->fileName($file);
-
-                // Get all the navegation values from the current resource
-                return [$resourceName => $this->navigationFields($resourceName)];
-            });
-    }
-
-    /**
-     * Get the basic values to generate the navigation links
-     */
-    public function navigationFields(string $resourceName): Collection
-    {
-        $class = app($this->resourceFile($resourceName));
-        $title = $this->resourcePluralLabel($class, $resourceName);
-
-        return collect([
-            'class' => $resourceName,
-            'displayInNavigation' => $class::$displayInNavigation,
-            'group' => $class::$group ?? $title,
-            'icon' => $this->resourceIcon($class),
-            'label' => $this->resourceLabel($class, $resourceName),
-            'pluralLabel' => $title,
-            'resource' => $resourceName,
-        ]);
-    }
-
-    /**
-     * Prepare all the navigation fields
-     */
-    public function displayNavigationFields(): Collection
-    {
-        return collect($this->allResources())
-            ->map(static function ($item) {
-                return $item['displayInNavigation'] === true
-                    ? $item->forget('displayInNavigation')
-                    : null;
-            })
-            ->filter()
-            ->values()
-            ->groupBy(['group'])
-            ->sortBy(['pluralLabel']);
-    }
-
-    /**
-     * Render a group of resources
-     */
-    public function renderGroupElements(Collection $group): array
-    {
-        return $group->map(function ($items) {
-            return $items['icon']
-                ? ['text' => $items['group'], 'icon' => $items['icon']]
-                : [];
-        })
-        ->first();
-    }
-
     /**
      * Get all the items from a resource
      */
-    private function resourceFile(string $resourceName): string
+    private function getResourceFile(string $resourceName): string
     {
         return Belich::hasTestingEnvironment()
             // Only for testing

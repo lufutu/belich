@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Daguilarm\Belich\Core;
 
-use Daguilarm\Belich\Core\Belich\Traits\Environmentable;
-use Daguilarm\Belich\Core\Belich\Traits\Resourceable;
+use Daguilarm\Belich\Core\Belich\Traits\Environments;
+use Daguilarm\Belich\Core\Belich\Traits\Resources;
 use Illuminate\Http\Request;
 
 final class Belich
 {
-    use Environmentable,
-        Resourceable;
+    use Environments,
+        Resources;
 
     /** @var array<string> */
     protected array $allowedActions = ['index', 'create', 'edit', 'show'];
