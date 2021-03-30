@@ -21,7 +21,7 @@
                     </div>
 
                     {{-- Profile --}}
-                    <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                    <x-jet-dropdown-link href="{{ route('belich.profile.show') }}">
                         {{ __('Profile') }}
                     </x-jet-dropdown-link>
 

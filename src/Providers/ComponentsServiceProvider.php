@@ -24,9 +24,6 @@ final class ComponentsServiceProvider extends Provider
 
         // Load the custom navbar components
         Blade::component('belich-navbar', Navbar::class);
-
-        // Load the custom main container components
-        Blade::component('belich-container', Container::class);
     }
 
     /**

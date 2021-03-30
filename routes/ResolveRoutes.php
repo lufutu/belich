@@ -13,6 +13,11 @@ Route::group([
         return view('belich::dashboard');
     })->name('dashboard');
 
+    //Profile
+    Route::get('/dashboard/profile', function () {
+        return view('belich::profile');
+    })->name('profile.show');
+
     //Load all the custom routes
     if (file_exists(app_path('/Belich/Routes.php'))) {
         require_once app_path('/Belich/Routes.php');
