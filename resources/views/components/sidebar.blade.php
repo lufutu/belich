@@ -1,7 +1,27 @@
+{{-- Sidebar config --}}
+@php
+    $background = 'bg-gray-700';
+
+    $mainLinkBackground = 'bg-gray-700';
+    $mainLinkBackgroundHover = 'bg-gray-800';
+    $mainLinkColor = '';
+    $mainLinkColorHover = '';
+    $mainLinkSeparator = '';
+
+    $secundaryLinkBackground = '';
+    $secundaryLinkBackgroundHover = '';
+    $secundaryLinkColorHover = '';
+    $secundaryLinkColor = '';
+    $secundaryLinkSeparator = '';
+
+    $widthOpen = 'w-48';
+    $widthClose = 'w-16';
+@endphp
+
 {{-- Sidebar container --}}
 <div
     id="menu"
-    class="bg-gray-700"
+    class="{{ config('belich-theme.background') }}"
     @mouseover="isClose = false"
     @mouseleave="isClose = true;"
     x-cloak
@@ -10,7 +30,7 @@
     {{-- Base container --}}
     <div
         class="flex flex-col justify-between"
-        :class="{'is-close': isClose, 'w-16': isClose, 'w-48': !isClose}"
+        :class="{'is-close': isClose, '{{ config('belich-theme.sidebar.widthClose') }}': isClose, '{{ config('belich-theme.sidebar.widthOpen') }}': !isClose}"
     >
 
         {{-- Home icon --}}

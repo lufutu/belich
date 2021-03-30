@@ -1,7 +1,7 @@
 {{-- Gruped link --}}
 <a
     href="{{ $url }}"
-    class="flex content-center block p-3 border-b border-gray-700 text-white hover:text-yellow-400 hover:bg-black"
+    class="flex content-center block p-3 border-b border-gray-700 {{ config('belich-theme.sidebar.mainLinkColor') }} hover:{{ config('belich-theme.sidebar.mainLinkColorHover') }} {{ config('belich-theme.sidebar.mainLinkBackground') }} hover:{{ config('belich-theme.sidebar.mainLinkBackgroundHover') }}"
 >
 
     {{-- Default Icon --}}
