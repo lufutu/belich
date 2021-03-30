@@ -1,4 +1,4 @@
-<div class="h-20 bg-green-500 border-b-2 border-green-700 flex items-center justify-center">
+<div class="h-20 bg-{{ config('belich-theme.sidebar.homeLogoColor') }}-400 border-b-2 border-{{ config('belich-theme.sidebar.homeLogoColor') }}-600 flex items-center justify-center">
 
     {{-- Link --}}
     <a
@@ -7,7 +7,7 @@
     >
 
         {{-- Icon --}}
-        <span class=" bg-green-700 hover:bg-white text-white hover:text-green-700 rounded-full h-10 w-10 flex items-center justify-center">
+        <span class=" bg-{{ config('belich-theme.sidebar.homeLogoColor') }}-600 hover:bg-white text-white hover:text-{{ config('belich-theme.sidebar.homeLogoColor') }}-600 rounded-full h-10 w-10 flex items-center justify-center">
             {{ $icon }}
         </span>
 

@@ -1,7 +1,7 @@
 {{-- Gruped link --}}
 <a
     href="{{ $url }}"
-    class="flex content-center block p-3 border-b border-gray-700 {{ config('belich-theme.sidebar.mainLinkColor') }} hover:{{ config('belich-theme.sidebar.mainLinkColorHover') }} {{ config('belich-theme.sidebar.mainLinkBackground') }} hover:{{ config('belich-theme.sidebar.mainLinkBackgroundHover') }}"
+    class="flex content-center block p-3 border-b {{ config('belich-theme.sidebar.secondaryLinkBorderColor') }} {{ config('belich-theme.sidebar.secondaryLinkColor') }} hover:{{ config('belich-theme.sidebar.secondaryLinkColorHover') }} {{ config('belich-theme.sidebar.secondaryLinkBackground') }} hover:{{ config('belich-theme.sidebar.secondaryLinkBackgroundHover') }}"
 >
 
     {{-- Default Icon --}}

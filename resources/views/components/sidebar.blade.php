@@ -1,27 +1,7 @@
-{{-- Sidebar config --}}
-@php
-    $background = 'bg-gray-700';
-
-    $mainLinkBackground = 'bg-gray-700';
-    $mainLinkBackgroundHover = 'bg-gray-800';
-    $mainLinkColor = '';
-    $mainLinkColorHover = '';
-    $mainLinkSeparator = '';
-
-    $secundaryLinkBackground = '';
-    $secundaryLinkBackgroundHover = '';
-    $secundaryLinkColorHover = '';
-    $secundaryLinkColor = '';
-    $secundaryLinkSeparator = '';
-
-    $widthOpen = 'w-48';
-    $widthClose = 'w-16';
-@endphp
-
 {{-- Sidebar container --}}
 <div
     id="menu"
-    class="{{ config('belich-theme.background') }}"
+    class="{{ config('belich-theme.sidebar.background') }}"
     @mouseover="isClose = false"
     @mouseleave="isClose = true;"
     x-cloak

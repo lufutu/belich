@@ -1,7 +1,7 @@
 {{-- Link --}}
 <a
     href="{{ $url }}"
-    class="flex content-center block p-3 border-b border-gray-900 {{ config('belich-theme.sidebar.mainLinkColor') }} hover:{{ config('belich-theme.sidebar.mainLinkColorHover') }} {{ config('belich-theme.sidebar.mainLinkBackground') }} hover:{{ config('belich-theme.sidebar.mainLinkBackgroundHover') }}"
+    class="flex content-center block p-3 border-b {{ config('belich-theme.sidebar.mainLinkBorderColor') }} {{ config('belich-theme.sidebar.mainLinkColor') }} hover:{{ config('belich-theme.sidebar.mainLinkColorHover') }} {{ config('belich-theme.sidebar.mainLinkBackground') }} hover:{{ config('belich-theme.sidebar.mainLinkBackgroundHover') }}"
     :class="isClose ? 'justify-center' : 'justify-start'"
 >
 

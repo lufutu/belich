@@ -3,7 +3,7 @@
 
     <a
         href="javascript:void(0);"
-        class="flex items-center p-3 border-b border-gray-900 hover:text-yellow-400 {{ config('belich-theme.sidebar.mainLinkBackground') }} hover:{{ config('belich-theme.sidebar.mainLinkBackgroundHover') }}"
+        class="flex items-center p-3 border-b {{ config('belich-theme.sidebar.mainLinkBorderColor') }} {{ config('belich-theme.sidebar.mainLinkBackground') }}  {{ config('belich-theme.sidebar.mainLinkColor') }} hover:{{ config('belich-theme.sidebar.mainLinkColorHover') }} {{ config('belich-theme.sidebar.mainLinkBackground') }} hover:{{ config('belich-theme.sidebar.mainLinkBackgroundHover') }}"
         @click="toggle = !toggle"
         :class="{ 'justify-center': $parent.isClose, 'justify-start': !$parent.isClose }"
     >
@@ -41,7 +41,6 @@
 
     {{-- Group container for the items from the next level (sublevel) --}}
     <ul
-        class="bg-gray-600"
         :class="{ 'hidden': toggle || $parent.isClose }"
     >
         {{ $slot }}

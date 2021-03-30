@@ -28,7 +28,10 @@
     <body>
 
         {{-- Container --}}
-        <div class="flex" x-data="{isClose: true, toggle: true}">
+        <div
+            class="flex"
+            x-data="{isClose: true, toggle: true}"
+        >
 
             {{-- Sidebar --}}
             <x-belich-sidebar />
