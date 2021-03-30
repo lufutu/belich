@@ -1,4 +1,4 @@
-<div class="h-20 bg-green-500 flex items-center justify-center">
+<div class="h-20 bg-green-500 border-b-2 border-green-700 flex items-center justify-center">
 
     {{-- Link --}}
     <a
