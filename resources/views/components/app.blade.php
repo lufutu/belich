@@ -40,7 +40,7 @@
                 <x-belich-navbar />
 
                 {{-- Container --}}
-                <div class="bg-white p-3 border border-gray-200" style="min-height: calc(100vh - 75px);">
+                <div class="min-h-screen bg-gray-100 xl:p-8 p-2" style="min-height: calc(100vh - 75px);">
 
                     {{-- Flash messages --}}
                     <x-jet-banner />
