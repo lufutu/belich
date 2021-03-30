@@ -1,3 +1,5 @@
+{{-- Get the group elements. See Daguilarm\Belich\App\View\Components\Group --}}
+
 <a
     href="javascript:void(0);"
     class="flex items-center p-3 border-b border-gray-900 hover:text-yellow-400"

@@ -40,14 +40,8 @@
                     {{-- two level resource --}}
                     @else
 
-                        {{-- Set the group elements --}}
-                        @php $group = Belich::displayGroup($resource); @endphp
-
-                        {{-- Get the group elements --}}
-                        <x:belich::sidebar.group
-                            :text="$group['text']"
-                            :icon="$group['icon']"
-                        >
+                        {{-- Get the group elements. See Daguilarm\Belich\App\View\Components\Group --}}
+                        <x:belich::group :resource="$resource">
 
                             {{-- List of items --}}
                             @foreach($resource as $item)

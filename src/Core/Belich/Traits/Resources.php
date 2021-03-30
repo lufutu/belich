@@ -28,19 +28,6 @@ trait Resources
     }
 
     /**
-     * Prepare the group elements
-     */
-    public function displayGroup(Collection $group): array
-    {
-        return $group->map(function ($items) {
-            return $items['icon']
-                ? ['text' => $items['group'], 'icon' => $items['icon']]
-                : [];
-        })
-            ->first();
-    }
-
-    /**
      * Get all the Belich resources
      */
     private function getAllResources(): Collection
