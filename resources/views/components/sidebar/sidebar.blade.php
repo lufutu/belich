@@ -4,6 +4,7 @@
     class="bg-gray-700"
     @mouseover="isClose = false"
     @mouseleave="isClose = true;"
+    x-cloak
 >
 
     {{-- Base container --}}

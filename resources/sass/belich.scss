@@ -3,7 +3,4 @@
 @import "tailwindcss/utilities";
 
 @import "components/navbar";
-
-[x-cloak] {
-    display: none !important;
-}
+@import "components/alpineJS";

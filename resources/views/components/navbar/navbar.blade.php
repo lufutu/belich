@@ -3,10 +3,13 @@
     <div x-data="{ open: false }" class="flex flex-col w-full px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
 
         {{-- Logo --}}
-        <x:belich::navbar.logo />
+        <x-belich::navbar.logo />
 
         {{-- Navigation --}}
-        <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+        <nav
+            class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row"
+            :class="{'flex': open, 'hidden': !open}"
+        >
 
             {{-- Dropdown --}}
             <div
@@ -22,7 +25,7 @@
                 >
 
                     {{-- User name --}}
-                    <span>{{ auth()->user()->name }}</span>
+                    <span>{{ auth()->user()->name ?? Helper::emptyResults() }}</span>
 
                     {{-- Icon --}}
                     <svg
