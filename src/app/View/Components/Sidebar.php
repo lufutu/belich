@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\Belich\App\View\Components;
 
 use Daguilarm\Belich\Facades\Belich;
-use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 
 class Sidebar extends Component

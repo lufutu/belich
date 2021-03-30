@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\Belich\App\Http\Livewire;
 
 use Illuminate\Support\Facades\Auth;
@@ -30,11 +32,8 @@ class TwoFactorAuthenticationForm extends Component
 
     /**
      * Enable two factor authentication for the user.
-     *
-     * @param  \Laravel\Fortify\Actions\EnableTwoFactorAuthentication  $enable
-     * @return void
      */
-    public function enableTwoFactorAuthentication(EnableTwoFactorAuthentication $enable)
+    public function enableTwoFactorAuthentication(EnableTwoFactorAuthentication $enable): void
     {
         if (Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword')) {
             $this->ensurePasswordIsConfirmed();
@@ -48,10 +47,8 @@ class TwoFactorAuthenticationForm extends Component
 
     /**
      * Display the user's recovery codes.
-     *
-     * @return void
      */
-    public function showRecoveryCodes()
+    public function showRecoveryCodes(): void
     {
         if (Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword')) {
             $this->ensurePasswordIsConfirmed();
@@ -62,11 +59,8 @@ class TwoFactorAuthenticationForm extends Component
 
     /**
      * Generate new recovery codes for the user.
-     *
-     * @param  \Laravel\Fortify\Actions\GenerateNewRecoveryCodes  $generate
-     * @return void
      */
-    public function regenerateRecoveryCodes(GenerateNewRecoveryCodes $generate)
+    public function regenerateRecoveryCodes(GenerateNewRecoveryCodes $generate): void
     {
         if (Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword')) {
             $this->ensurePasswordIsConfirmed();
@@ -79,11 +73,8 @@ class TwoFactorAuthenticationForm extends Component
 
     /**
      * Disable two factor authentication for the user.
-     *
-     * @param  \Laravel\Fortify\Actions\DisableTwoFactorAuthentication  $disable
-     * @return void
      */
-    public function disableTwoFactorAuthentication(DisableTwoFactorAuthentication $disable)
+    public function disableTwoFactorAuthentication(DisableTwoFactorAuthentication $disable): void
     {
         if (Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword')) {
             $this->ensurePasswordIsConfirmed();
@@ -104,20 +95,16 @@ class TwoFactorAuthenticationForm extends Component
 
     /**
      * Determine if two factor authentication is enabled.
-     *
-     * @return bool
      */
-    public function getEnabledProperty()
+    public function getEnabledProperty(): bool
     {
         return ! empty($this->user->two_factor_secret);
     }
 
     /**
      * Render the component.
-     *
-     * @return \Illuminate\View\View
      */
-    public function render()
+    public function render(): \Illuminate\View\View
     {
         return view('profile.two-factor-authentication-form');
     }

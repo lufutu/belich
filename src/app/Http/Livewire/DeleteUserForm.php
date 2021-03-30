@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\Belich\App\Http\Livewire;
 
 use Illuminate\Contracts\Auth\StatefulGuard;
@@ -27,10 +29,8 @@ class DeleteUserForm extends Component
 
     /**
      * Confirm that the user would like to delete their account.
-     *
-     * @return void
      */
-    public function confirmUserDeletion()
+    public function confirmUserDeletion(): void
     {
         $this->resetErrorBag();
 
@@ -43,12 +43,8 @@ class DeleteUserForm extends Component
 
     /**
      * Delete the current user.
-     *
-     * @param  \Laravel\Jetstream\Contracts\DeletesUsers  $deleter
-     * @param  \Illuminate\Contracts\Auth\StatefulGuard  $auth
-     * @return void
      */
-    public function deleteUser(DeletesUsers $deleter, StatefulGuard $auth)
+    public function deleteUser(DeletesUsers $deleter, StatefulGuard $auth): void
     {
         $this->resetErrorBag();
 
@@ -67,10 +63,8 @@ class DeleteUserForm extends Component
 
     /**
      * Render the component.
-     *
-     * @return \Illuminate\View\View
      */
-    public function render()
+    public function render(): \Illuminate\View\View
     {
         return view('profile.delete-user-form');
     }

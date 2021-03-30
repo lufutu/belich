@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\Belich\App\Http\Livewire;
 
 use Illuminate\Support\Facades\Auth;
@@ -21,11 +23,8 @@ class UpdatePasswordForm extends Component
 
     /**
      * Update the user's password.
-     *
-     * @param  \Laravel\Fortify\Contracts\UpdatesUserPasswords  $updater
-     * @return void
      */
-    public function updatePassword(UpdatesUserPasswords $updater)
+    public function updatePassword(UpdatesUserPasswords $updater): void
     {
         $this->resetErrorBag();
 
@@ -52,10 +51,8 @@ class UpdatePasswordForm extends Component
 
     /**
      * Render the component.
-     *
-     * @return \Illuminate\View\View
      */
-    public function render()
+    public function render(): \Illuminate\View\View
     {
         return view('profile.update-password-form');
     }

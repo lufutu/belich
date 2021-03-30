@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\Belich\App\Http\Livewire;
 
 use Illuminate\Support\Facades\Auth;
@@ -27,19 +29,14 @@ class UpdateProfileInformationForm extends Component
 
     /**
      * Prepare the component.
-     *
-     * @return void
      */
-    public function mount()
+    public function mount(): void
     {
         $this->state = Auth::user()->withoutRelations()->toArray();
     }
 
     /**
      * Update the user's profile information.
-     *
-     * @param  \Laravel\Fortify\Contracts\UpdatesUserProfileInformation  $updater
-     * @return void
      */
     public function updateProfileInformation(UpdatesUserProfileInformation $updater)
     {
@@ -63,10 +60,8 @@ class UpdateProfileInformationForm extends Component
 
     /**
      * Delete user's profile photo.
-     *
-     * @return void
      */
-    public function deleteProfilePhoto()
+    public function deleteProfilePhoto(): void
     {
         Auth::user()->deleteProfilePhoto();
 
@@ -85,11 +80,9 @@ class UpdateProfileInformationForm extends Component
 
     /**
      * Render the component.
-     *
-     * @return \Illuminate\View\View
      */
-    public function render()
+    public function render(): \Illuminate\View\View
     {
-        return view('belich::profile.update-profile-information-form');
+        return view('belich::components.profile.update-profile-information-form');
     }
 }

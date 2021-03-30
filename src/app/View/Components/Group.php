@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\Belich\App\View\Components;
 
 use Illuminate\Support\Collection;

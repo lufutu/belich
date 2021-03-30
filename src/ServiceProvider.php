@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Daguilarm\Belich;
 
+use Daguilarm\Belich\App\Http\Livewire\UpdateProfileInformationForm;
 use Daguilarm\Belich\App\View\Components\Group;
 use Daguilarm\Belich\App\View\Components\Sidebar;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as Provider;
 use Illuminate\View\Compilers\BladeCompiler;
+use Livewire\Livewire;
 
 final class ServiceProvider extends Provider
 {
@@ -26,6 +28,7 @@ final class ServiceProvider extends Provider
         $this->registerRoutes();
         $this->registerResources();
         $this->configureComponents();
+        $this->configureLivewire();
         // $this->registerConsole();
         // $this->registerMigrations();
     }
@@ -69,7 +72,7 @@ final class ServiceProvider extends Provider
      *
      * @return void
      */
-    protected function configureComponents()
+    protected function configureComponents(): void
     {
         $this->callAfterResolving(BladeCompiler::class, function () {
             // Load the custom components with classes
@@ -77,10 +80,24 @@ final class ServiceProvider extends Provider
             Blade::component('belich-sidebar-group', Group::class);
 
             // Load anonymous components
+            Blade::component('belich::components.app', 'belich-app');
             Blade::component('belich::components.navbar', 'belich-navbar');
             Blade::component('belich::components.sidebar.group-link', 'belich-sidebar-group-link');
             Blade::component('belich::components.sidebar.home', 'belich-sidebar-home');
             Blade::component('belich::components.sidebar.link', 'belich-sidebar-link');
+        });
+    }
+
+    /**
+     * Configure the Livewire components.
+     *
+     * @return void
+     */
+    protected function configureLivewire(): void
+    {
+        $this->callAfterResolving(BladeCompiler::class, function () {
+            // Load the custom components with classes
+            Livewire::component('profile-update', UpdateProfileInformationForm::class);
         });
     }
 

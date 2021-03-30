@@ -23,6 +23,5 @@ final class LivewireServiceProvider extends Provider
      */
     public function register(): void
     {
-
     }
 }
