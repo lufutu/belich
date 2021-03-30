@@ -55,8 +55,11 @@ final class ServiceProvider extends Provider
      */
     protected function registerRoutes(): void
     {
-        //Dashboard routes
+        // Dashboard routes
         require_once __DIR__ . '/../routes/ResolveRoutes.php';
+
+        // Jetstream routes
+        require_once __DIR__ . '/../routes/JetstreamRoutes.php';
     }
 
     /**
