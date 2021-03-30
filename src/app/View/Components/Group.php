@@ -29,11 +29,17 @@ class Group extends Component
         return view('belich::components.sidebar.group');
     }
 
+    /**
+     * Set the $text variable in the component view
+     */
     public function text(): string
     {
         return $this->resource['text'];
     }
 
+    /**
+     * Set the $icon variable in the component view
+     */
     public function icon(): string
     {
         return $this->resource['icon'];

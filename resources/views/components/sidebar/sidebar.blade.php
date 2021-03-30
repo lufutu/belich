@@ -3,7 +3,7 @@
     id="menu"
     class="bg-gray-700"
     @mouseover="isClose = false"
-    @mouseleave="isClose = true"
+    @mouseleave="isClose = true;"
 >
 
     {{-- Base container --}}
@@ -41,7 +41,7 @@
                     @else
 
                         {{-- Get the group elements. See Daguilarm\Belich\App\View\Components\Group --}}
-                        <x:belich::group :resource="$resource">
+                        <x:belich::sidebar-group :resource="$resource">
 
                             {{-- List of items --}}
                             @foreach($resource as $item)
@@ -51,7 +51,7 @@
                                 />
                             @endforeach
 
-                        </x:belich::sidebar.group>
+                        </x:belich::sidebar-group>
                     @endif
 
                 </li>
