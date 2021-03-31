@@ -8,7 +8,8 @@ use Illuminate\Support\Collection;
 
 trait Resources
 {
-    use ResourcesAuxiliar;
+    use ResourceFiles,
+        ResourceAttributes;
 
     /**
      * Prepare all the navigation fields for the sidebar
@@ -32,26 +33,26 @@ trait Resources
      */
     private function getAllResourcesForSidebar(): Collection
     {
-        return $this->resourcesFolder()
+        return $this->getResourcesFolder()
             ->map(static function ($file) {
                 return $file;
             })->filter(static function ($value) {
                 return $value !== '.' && $value !== '..';
             })->mapWithKeys(function ($file) {
                 // Define the current resource
-                $resourceName = $this->fileName($file);
+                $resourceName = $this->getFileName($file);
 
                 // Get all the navegation values from the current resource
-                return [$resourceName => $this->createNavigationFieldsForSidebar($resourceName)];
+                return [$resourceName => $this->populateNavigationFieldsForSidebar($resourceName)];
             });
     }
 
     /**
      * Get the basic values to generate the navigation links for the sidebar
      */
-    private function createNavigationFieldsForSidebar(string $resourceName): Collection
+    private function populateNavigationFieldsForSidebar(string $resourceName): Collection
     {
-        $class = app($this->getResourceFile($resourceName));
+        $class = app($this->getResourcesFile($resourceName));
         $title = $this->resourcePluralLabel($class, $resourceName);
 
         return collect([
