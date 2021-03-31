@@ -7,13 +7,15 @@ namespace Daguilarm\Belich\Core;
 use Daguilarm\Belich\Core\Belich\Traits\Environments;
 use Daguilarm\Belich\Core\Belich\Traits\Middlewares;
 use Daguilarm\Belich\Core\Belich\Traits\Resources;
+use Daguilarm\Belich\Core\Belich\Traits\Sidebars;
 use Illuminate\Http\Request;
 
 final class Belich
 {
     use Environments,
         Middlewares,
-        Resources;
+        Resources,
+        Sidebars;
 
     /** @var array<string> */
     protected array $allowedActions = ['index', 'create', 'edit', 'show'];

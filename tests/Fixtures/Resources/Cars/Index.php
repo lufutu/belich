@@ -1,11 +1,18 @@
 <?php
 
-namespace Daguilarm\Belich\Tests\Fixtures\Cars;
+namespace Daguilarm\Belich\Tests\Fixtures\Resources\Cars;
 
-final class Index
+use Daguilarm\Belich\Core\IndexResource;
+use Illuminate\Http\Request;
+
+final class Index extends IndexResource
 {
     public static string $group = "Sección 1";
     public static string $label = "Coche";
     public static string $pluralLabel = "Coches";
-    public static bool $displayInNavigation = true;
+
+    public function table(Request $request): array
+    {
+        return [];
+    }
 }

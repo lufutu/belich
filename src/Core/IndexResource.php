@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Daguilarm\Belich\Core;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 
 abstract class IndexResource
 {

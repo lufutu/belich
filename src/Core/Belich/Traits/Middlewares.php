@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Daguilarm\Belich\Core\Belich\Traits;
 
+use Daguilarm\Belich\Facades\Belich;
+
 trait Middlewares
 {
     // private array $packageMiddleware = ['belich', 'minify'];
@@ -19,6 +21,11 @@ trait Middlewares
      */
     public function middleware(): array
     {
+        // Testing filter for middleware
+        if (Belich::hasTestingEnvironment()) {
+            return [];
+        }
+
         return count(config('belich.middleware')) > 0
 
             // Add the middleware from the configuration file [/config/belich.php] and the package middlewar

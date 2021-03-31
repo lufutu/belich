@@ -4,66 +4,101 @@ declare(strict_types=1);
 
 namespace Daguilarm\Belich\Core\Belich\Traits;
 
-use Illuminate\Support\Collection;
+use Daguilarm\Belich\Facades\Belich;
+use Illuminate\Support\Str;
 
 trait Resources
 {
     use ResourceFiles,
         ResourceAttributes;
 
+    private array $resourcesPathFilter = ['//', '///', '////'];
+
     /**
-     * Prepare all the navigation fields for the sidebar
+     * Get the resource $allowAccessToResource variable from the resource.
      */
-    public function sidebarNavigation(): Collection
+    public function getAllowAccessToResource(): bool
     {
-        return collect($this->getAllResourcesForSidebar())
-            ->map(static function ($item) {
-                return $item['displayInNavigation'] === true
-                    ? $item->forget('displayInNavigation')
-                    : null;
-            })
-            ->filter()
-            ->values()
-            ->groupBy(['group'])
-            ->sortBy(['pluralLabel']);
     }
 
     /**
-     * Get all the Belich resources to show in the sidebar
+     * Get the resource class
      */
-    private function getAllResourcesForSidebar(): Collection
+    public function getResource(string $resource): object
     {
-        return $this->getResourcesFolder()
-            ->map(static function ($file) {
-                return $file;
-            })->filter(static function ($value) {
-                return $value !== '.' && $value !== '..';
-            })->mapWithKeys(function ($file) {
-                // Define the current resource
-                $resourceName = $this->getFileName($file);
+        $class = sprintf(
+            '%s\\%s\\Index',
+            $this->getResourcePath(),
+            $this->getClassFolderName($resource),
+        );
 
-                // Get all the navegation values from the current resource
-                return [$resourceName => $this->populateNavigationFieldsForSidebar($resourceName)];
-            });
+        return app($class);
     }
 
     /**
-     * Get the basic values to generate the navigation links for the sidebar
+     * Get the app name.
      */
-    private function populateNavigationFieldsForSidebar(string $resourceName): Collection
+    public function name(): string
     {
-        // Get the default values
-        $class = app($this->getResourcesFile($resourceName));
-        $title = $this->resourcePluralLabel($class, $resourceName);
+        return config('belich.name', 'Belich Dashboard');
+    }
 
-        return collect([
-            'class' => $resourceName,
-            'displayInNavigation' => $class::$displayInNavigation,
-            'group' => $class::$group ?? $title,
-            'icon' => $this->resourceIcon($class),
-            'label' => $this->resourceLabel($class, $resourceName),
-            'pluralLabel' => $title,
-            'resource' => $resourceName,
-        ]);
+    /**
+     * Get the app path [/dashboard].
+     */
+    public function path(): string
+    {
+        return str_replace(
+            $this->resourcesPathFilter,
+            '',
+            config('belich.path', '/dashboard')
+        );
+    }
+
+    /**
+     * Get the app path name [dashboard].
+     */
+    public function pathName(): string
+    {
+        return str_replace(
+            array_merge(['/'], $this->resourcesPathFilter),
+            '',
+            self::path()
+        );
+    }
+
+    /**
+     * Get the app url.
+     */
+    public function url(): string
+    {
+        $url = sprintf('%s/%s', request()->root(), self::path());
+
+        return str_replace(
+            $this->resourcesPathFilter,
+            '/',
+            $url
+        );
+    }
+
+    /**
+     * Get the formated class name
+     */
+    private function getClassFolderName(string $className): string
+    {
+        return Str::of($className)
+            ->title()
+            ->plural()
+            ->__toString();
+    }
+
+    /**
+     * Get the resource class path
+     */
+    private function getResourcePath(): string
+    {
+        return Belich::hasTestingEnvironment()
+            ? '\\Daguilarm\\Belich\\Tests\\Fixtures\\Resources'
+            : '\\App\\Belich\\Resources';
     }
 }

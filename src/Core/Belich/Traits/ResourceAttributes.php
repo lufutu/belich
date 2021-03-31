@@ -22,7 +22,7 @@ trait ResourceAttributes
     private function resourceLabel(object $class, string $resourceName): string
     {
         $altLabel = Str::of($resourceName)
-            ->title()
+            ->ucfirst()
             ->singular()
             ->__toString();
 
@@ -35,7 +35,7 @@ trait ResourceAttributes
     private function resourcePluralLabel(object $class, string $resourceName): string
     {
         $altPluralLabel = Str::of($resourceName)
-            ->title()
+            ->ucfirst()
             ->plural()
             ->__toString();
 

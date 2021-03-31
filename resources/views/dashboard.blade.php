@@ -1,3 +1,3 @@
 <x-belich::app>
-    Nuevo container
+    {{-- @dd(Belich::getResource('car')) --}}
 </x-belich::app>

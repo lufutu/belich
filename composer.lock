@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9dddd55f497e3f115c4f1ccc62295156",
+    "content-hash": "ac38e7fe87bd6e96e508ff3d5c852cbe",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -61,16 +61,16 @@
         },
         {
             "name": "blade-ui-kit/blade-heroicons",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-heroicons.git",
-                "reference": "47cbf9b1d71b20c4240c24f9742c66b7e55ee37b"
+                "reference": "2e47c31b6553e158ff93f14a961cc588d3302b0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-heroicons/zipball/47cbf9b1d71b20c4240c24f9742c66b7e55ee37b",
-                "reference": "47cbf9b1d71b20c4240c24f9742c66b7e55ee37b",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-heroicons/zipball/2e47c31b6553e158ff93f14a961cc588d3302b0d",
+                "reference": "2e47c31b6553e158ff93f14a961cc588d3302b0d",
                 "shasum": ""
             },
             "require": {
@@ -114,7 +114,7 @@
             ],
             "support": {
                 "issues": "https://github.com/blade-ui-kit/blade-heroicons/issues",
-                "source": "https://github.com/blade-ui-kit/blade-heroicons/tree/1.0.0"
+                "source": "https://github.com/blade-ui-kit/blade-heroicons/tree/1.0.1"
             },
             "funding": [
                 {
@@ -126,20 +126,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-21T16:07:01+00:00"
+            "time": "2021-03-31T15:01:44+00:00"
         },
         {
             "name": "blade-ui-kit/blade-icons",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-icons.git",
-                "reference": "985833d48588123ae6b094dd0f23426092b1b63e"
+                "reference": "d79f3039d39c31759095add262c6394d1b9e9eb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/985833d48588123ae6b094dd0f23426092b1b63e",
-                "reference": "985833d48588123ae6b094dd0f23426092b1b63e",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/d79f3039d39c31759095add262c6394d1b9e9eb2",
+                "reference": "d79f3039d39c31759095add262c6394d1b9e9eb2",
                 "shasum": ""
             },
             "require": {
@@ -202,7 +202,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-21T15:50:55+00:00"
+            "time": "2021-03-31T14:53:13+00:00"
         },
         {
             "name": "brick/math",
@@ -814,16 +814,16 @@
         },
         {
             "name": "laravel/fortify",
-            "version": "v1.7.8",
+            "version": "v1.7.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/fortify.git",
-                "reference": "6d55d81ac1c101f1e842a52160bbc83d55e95159"
+                "reference": "9ba71f3e448ae44370bdfe72f19952e23b4d6191"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/fortify/zipball/6d55d81ac1c101f1e842a52160bbc83d55e95159",
-                "reference": "6d55d81ac1c101f1e842a52160bbc83d55e95159",
+                "url": "https://api.github.com/repos/laravel/fortify/zipball/9ba71f3e448ae44370bdfe72f19952e23b4d6191",
+                "reference": "9ba71f3e448ae44370bdfe72f19952e23b4d6191",
                 "shasum": ""
             },
             "require": {
@@ -873,20 +873,20 @@
                 "issues": "https://github.com/laravel/fortify/issues",
                 "source": "https://github.com/laravel/fortify"
             },
-            "time": "2021-03-09T19:05:19+00:00"
+            "time": "2021-03-30T21:12:39+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v8.35.0",
+            "version": "v8.35.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "476d06a41d109a355cb3a376bd09f21b7d83ebda"
+                "reference": "d118c0df39e7524131176aaf76493eae63a8a602"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/476d06a41d109a355cb3a376bd09f21b7d83ebda",
-                "reference": "476d06a41d109a355cb3a376bd09f21b7d83ebda",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d118c0df39e7524131176aaf76493eae63a8a602",
+                "reference": "d118c0df39e7524131176aaf76493eae63a8a602",
                 "shasum": ""
             },
             "require": {
@@ -1041,20 +1041,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-03-30T14:09:34+00:00"
+            "time": "2021-03-30T21:34:17+00:00"
         },
         {
             "name": "laravel/jetstream",
-            "version": "v2.2.5",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "e05018b39d7f5ef7ef19af6ba8244e89c2402aab"
+                "reference": "fffe15710e61c09f6cb919ff949a3c66c8244150"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/e05018b39d7f5ef7ef19af6ba8244e89c2402aab",
-                "reference": "e05018b39d7f5ef7ef19af6ba8244e89c2402aab",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/fffe15710e61c09f6cb919ff949a3c66c8244150",
+                "reference": "fffe15710e61c09f6cb919ff949a3c66c8244150",
                 "shasum": ""
             },
             "require": {
@@ -1108,7 +1108,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2021-03-25T10:42:54+00:00"
+            "time": "2021-03-30T21:35:46+00:00"
         },
         {
             "name": "league/commonmark",
@@ -6304,22 +6304,22 @@
         },
         {
             "name": "orchestra/testbench",
-            "version": "v6.15.0",
+            "version": "v6.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "79447675f43eff94149743a318355f213a55e348"
+                "reference": "5bd3a622eeb6f5361b90089791d7b2f35f034b91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/79447675f43eff94149743a318355f213a55e348",
-                "reference": "79447675f43eff94149743a318355f213a55e348",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/5bd3a622eeb6f5361b90089791d7b2f35f034b91",
+                "reference": "5bd3a622eeb6f5361b90089791d7b2f35f034b91",
                 "shasum": ""
             },
             "require": {
                 "laravel/framework": "^8.25",
                 "mockery/mockery": "^1.4.2",
-                "orchestra/testbench-core": "^6.19",
+                "orchestra/testbench-core": "^6.20",
                 "php": "^7.3 || ^8.0",
                 "phpunit/phpunit": "^8.4 || ^9.3.3",
                 "spatie/laravel-ray": "^1.17.1"
@@ -6353,7 +6353,7 @@
             ],
             "support": {
                 "issues": "https://github.com/orchestral/testbench/issues",
-                "source": "https://github.com/orchestral/testbench/tree/v6.15.0"
+                "source": "https://github.com/orchestral/testbench/tree/v6.16.0"
             },
             "funding": [
                 {
@@ -6365,20 +6365,20 @@
                     "type": "liberapay"
                 }
             ],
-            "time": "2021-03-21T00:45:50+00:00"
+            "time": "2021-03-30T23:05:25+00:00"
         },
         {
             "name": "orchestra/testbench-core",
-            "version": "v6.19.1",
+            "version": "v6.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench-core.git",
-                "reference": "482ec981f5c812c4ae6798d73cd04c666c7ba2c7"
+                "reference": "5789b74816e3c3f3d4bd2c419fb08ee2dd66b177"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/482ec981f5c812c4ae6798d73cd04c666c7ba2c7",
-                "reference": "482ec981f5c812c4ae6798d73cd04c666c7ba2c7",
+                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/5789b74816e3c3f3d4bd2c419fb08ee2dd66b177",
+                "reference": "5789b74816e3c3f3d4bd2c419fb08ee2dd66b177",
                 "shasum": ""
             },
             "require": {
@@ -6392,7 +6392,8 @@
                 "laravel/laravel": "8.x-dev",
                 "mockery/mockery": "^1.4.2",
                 "orchestra/canvas": "^6.1",
-                "phpunit/phpunit": "^8.4 || ^9.3.3 || ^10.0"
+                "phpunit/phpunit": "^8.4 || ^9.3.3 || ^10.0",
+                "symfony/process": "^5.0"
             },
             "suggest": {
                 "laravel/framework": "Required for testing (^8.26).",
@@ -6450,7 +6451,7 @@
                     "type": "liberapay"
                 }
             ],
-            "time": "2021-03-23T22:20:57+00:00"
+            "time": "2021-03-30T22:52:56+00:00"
         },
         {
             "name": "phar-io/manifest",

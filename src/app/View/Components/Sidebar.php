@@ -24,6 +24,6 @@ class Sidebar extends Component
      */
     public function resources()
     {
-        return Belich::sidebarNavigation();
+        return Belich::sidebar();
     }
 }

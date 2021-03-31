@@ -5,49 +5,25 @@ namespace Daguilarm\Belich\Tests\Unit;
 use Daguilarm\Belich\Facades\Belich;
 use Daguilarm\Belich\Tests\TestCase;
 
+// test --filter=ResourcesTest
 class ResourcesTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testGetResourcesFromFolderTest()
+    // test --filter=testResourcesMethodsTest
+    public function testResourcesMethodsTest(): void
     {
-        $resources = Belich::allResources('tests/Fixtures/Resources')->count();
-        $this->assertEquals($resources, 3);
+        $this->assertEquals(Belich::name(), 'Belich Dashboard');
+        $this->assertEquals(Belich::path(), '/dashboard');
+        $this->assertEquals(Belich::pathName(), 'dashboard');
+        $this->assertEquals(Belich::url(), 'http:/localhost/dashboard');
     }
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testGetResourcesForNavigationTest()
+    // test --filter=testGetResourceValuesTest
+    public function testGetResourceValuesTest(): void
     {
-        $resources = Belich::displayNavigationFields('tests/Fixtures/Resources')->count();
-        $this->assertEquals($resources, 2);
-    }
+        $class = Belich::getResource('car');
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testGetResourcesValueTest()
-    {
-        $resources = Belich::navigationFields('Cars');
-        $result = collect([
-            'class' => 'Cars',
-            'displayInNavigation' => true,
-            'group' => 'Sección 1',
-                // Only for testing
-                'icon' => '',
-            'label' => 'Coche',
-            'pluralLabel' => 'Coches',
-            'resource' => 'Cars',
-        ]);
-
-        $this->assertEquals($resources, $result);
+        $this->assertEquals($class::$group, 'Sección 1');
+        $this->assertEquals($class::$label, 'Coche');
+        $this->assertEquals($class::$pluralLabel, 'Coches');
     }
 }

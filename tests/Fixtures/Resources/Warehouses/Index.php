@@ -1,11 +1,18 @@
 <?php
 
-namespace Daguilarm\Belich\Tests\Fixtures\Warehouses;
+namespace Daguilarm\Belich\Tests\Fixtures\Resources\Warehouses;
 
-final class Index
+use Daguilarm\Belich\Core\IndexResource;
+use Illuminate\Http\Request;
+
+final class Index extends IndexResource
 {
     public static string $group = "Sección 2";
     public static string $label = "Almacén";
     public static string $pluralLabel = "Almacences";
-    public static bool $displayInNavigation = true;
+
+    public function table(Request $request): array
+    {
+        return [];
+    }
 }

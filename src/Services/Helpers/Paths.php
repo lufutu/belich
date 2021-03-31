@@ -27,7 +27,7 @@ trait Paths
      */
     public function testing_namespace(string $resourceName): string
     {
-        return sprintf('\\Daguilarm\\Belich\\Tests\\Fixtures\\%s\\Index', $resourceName);
+        return sprintf('\\Daguilarm\\Belich\\Tests\\Fixtures\\Resources\\%s\\Index', $resourceName);
     }
 
     /**
