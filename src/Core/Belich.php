@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace Daguilarm\Belich\Core;
 
 use Daguilarm\Belich\Core\Belich\Traits\Environments;
+use Daguilarm\Belich\Core\Belich\Traits\Middlewares;
 use Daguilarm\Belich\Core\Belich\Traits\Resources;
 use Illuminate\Http\Request;
 
 final class Belich
 {
     use Environments,
+        Middlewares,
         Resources;
 
     /** @var array<string> */

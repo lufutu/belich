@@ -11,11 +11,11 @@ trait Resources
     use ResourcesAuxiliar;
 
     /**
-     * Prepare all the navigation fields
+     * Prepare all the navigation fields for the sidebar
      */
-    public function displayNavigation(): Collection
+    public function sidebarNavigation(): Collection
     {
-        return collect($this->getAllResources())
+        return collect($this->getAllResourcesForSidebar())
             ->map(static function ($item) {
                 return $item['displayInNavigation'] === true
                     ? $item->forget('displayInNavigation')
@@ -28,9 +28,9 @@ trait Resources
     }
 
     /**
-     * Get all the Belich resources
+     * Get all the Belich resources to show in the sidebar
      */
-    private function getAllResources(): Collection
+    private function getAllResourcesForSidebar(): Collection
     {
         return $this->resourcesFolder()
             ->map(static function ($file) {
@@ -42,14 +42,14 @@ trait Resources
                 $resourceName = $this->fileName($file);
 
                 // Get all the navegation values from the current resource
-                return [$resourceName => $this->createNavigationFields($resourceName)];
+                return [$resourceName => $this->createNavigationFieldsForSidebar($resourceName)];
             });
     }
 
     /**
-     * Get the basic values to generate the navigation links
+     * Get the basic values to generate the navigation links for the sidebar
      */
-    private function createNavigationFields(string $resourceName): Collection
+    private function createNavigationFieldsForSidebar(string $resourceName): Collection
     {
         $class = app($this->getResourceFile($resourceName));
         $title = $this->resourcePluralLabel($class, $resourceName);

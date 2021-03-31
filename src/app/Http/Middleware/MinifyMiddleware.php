@@ -51,7 +51,7 @@ final class MinifyMiddleware
     /**
      * Handle an incoming request.
      */
-    public function handle(Request $request, Closure $next): Illuminate\Http\Request
+    public function handle(Request $request, Closure $next): Request
     {
         /** @var Response $response */
         $response = $next($request);

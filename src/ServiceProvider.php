@@ -53,9 +53,9 @@ final class ServiceProvider extends Provider
     protected function registerBootstrap(): void
     {
         // Middleware
-        $this->app['router']->pushMiddlewareToGroup('https', \Daguilarm\Belich\Http\Middleware\HttpsMiddleware::class);
-        $this->app['router']->pushMiddlewareToGroup('belich', \Daguilarm\Belich\Http\Middleware\BelichMiddleware::class);
-        $this->app['router']->pushMiddlewareToGroup('minify', \Daguilarm\Belich\Http\Middleware\MinifyMiddleware::class);
+        $this->app['router']->pushMiddlewareToGroup('https', \Daguilarm\Belich\App\Http\Middleware\HttpsMiddleware::class);
+        $this->app['router']->pushMiddlewareToGroup('belich', \Daguilarm\Belich\App\Http\Middleware\BelichMiddleware::class);
+        $this->app['router']->pushMiddlewareToGroup('minify', \Daguilarm\Belich\App\Http\Middleware\MinifyMiddleware::class);
     }
 
     /**
@@ -69,12 +69,10 @@ final class ServiceProvider extends Provider
 
     /**
      * Configure the Jetstream Blade components.
-     *
-     * @return void
      */
     protected function configureComponents(): void
     {
-        $this->callAfterResolving(BladeCompiler::class, function () {
+        $this->callAfterResolving(BladeCompiler::class, function (): void {
             // Load the custom components with classes
             Blade::component('belich-sidebar', Sidebar::class);
             Blade::component('belich-sidebar-group', Group::class);
@@ -90,12 +88,10 @@ final class ServiceProvider extends Provider
 
     /**
      * Configure the Livewire components.
-     *
-     * @return void
      */
     protected function configureLivewire(): void
     {
-        $this->callAfterResolving(BladeCompiler::class, function () {
+        $this->callAfterResolving(BladeCompiler::class, function (): void {
             // Load the custom components with classes
             Livewire::component('profile-update', UpdateProfileInformationForm::class);
         });

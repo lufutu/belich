@@ -1,6 +1,9 @@
 <div class="w-full h-20 py-2 text-gray-700 bg-white border-b-2 border-gray-200">
 
-    <div x-data="{ open: false }" class="flex flex-col w-full px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+    <div
+        x-data="{ open: false }"
+        class="flex flex-col w-full px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
+    >
 
         {{-- Logo or company name --}}
         <x-belich::navbar.logo />

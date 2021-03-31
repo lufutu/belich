@@ -2,21 +2,23 @@
 
 declare(strict_types=1);
 
+use Daguilarm\Belich\Facades\Belich;
+
 /** Belich Routes */
 Route::group([
     'as' => 'belich.',
-    'middleware' => ['web', 'auth:sanctum', 'verified'],
+    'middleware' => Belich::middleware(),
 ], static function (): void {
 
     //Dashboard
-    Route::get('/dashboard', function () {
+    Route::name('dashboard')->get('/dashboard', function () {
         return view('belich::dashboard');
-    })->name('dashboard');
+    });
 
     //Profile
-    Route::get('/dashboard/profile', function () {
+    Route::name('profile.show')->get('/dashboard/profile', function () {
         return view('belich::profile');
-    })->name('profile.show');
+    });
 
     //Load all the custom routes
     if (file_exists(app_path('/Belich/Routes.php'))) {
