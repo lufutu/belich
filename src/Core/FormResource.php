@@ -7,7 +7,7 @@ namespace Daguilarm\Belich\Core;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
-abstract class Forms
+abstract class FormResource
 {
     public static Collection $fields;
 

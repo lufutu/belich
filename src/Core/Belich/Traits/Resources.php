@@ -52,6 +52,7 @@ trait Resources
      */
     private function populateNavigationFieldsForSidebar(string $resourceName): Collection
     {
+        // Get the default values
         $class = app($this->getResourcesFile($resourceName));
         $title = $this->resourcePluralLabel($class, $resourceName);
 

@@ -6,10 +6,8 @@ namespace Daguilarm\Belich\Core\Belich\Traits;
 
 trait Middlewares
 {
-    // private array $belichMiddleware = ['belich'];
-    // private array $minifyMiddleware = ['minify'];
-    private array $belichMiddleware = [];
-    private array $minifyMiddleware = [];
+    // private array $packageMiddleware = ['belich', 'minify'];
+    private array $packageMiddleware = [];
     private array $defaultMiddleware = [
         'web',
         'auth:sanctum',
@@ -21,34 +19,23 @@ trait Middlewares
      */
     public function middleware(): array
     {
-        //Add the Belich middleware to the custom middleware
-        $middleware = array_merge(config('belich.middleware'), $this->belichMiddleware);
-
         return count(config('belich.middleware')) > 0
-            // Add the minify middleware to the configuration file (if its exists)
-            ? $this->minifyMiddleware($middleware)
+
+            // Add the middleware from the configuration file [/config/belich.php] and the package middlewar
+            ? $this->setMiddleware(config('belich.middleware'))
+
             // Only the default middleware
-            : $this->defaultMiddleware();
+            : $this->setMiddleware(this->defaultMiddleware);
     }
 
     /**
-     * Add or not the minify middleware
+     * Merge the middleware, with the package middleware
      */
-    private function minifyMiddleware(array $middleware): array
-    {
-        return config('belich.minifyHtml.enable') === true
-            ? array_merge($middleware, $this->minifyMiddleware)
-            : $middleware;
-    }
-
-    /**
-     * Default middleware
-     */
-    private function defaultMiddleware(): array
+    private function setMiddleware(array $middleware): array
     {
         return array_merge(
-            $this->defaultMiddleware,
-            $this->belichMiddleware
+            $middleware,
+            $this->packageMiddleware
         );
     }
 }

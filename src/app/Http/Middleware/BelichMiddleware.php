@@ -21,7 +21,7 @@ final class BelichMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         // Authorized access to resource
-        if (Belich::accessToResource() === false) {
+        if (Belich::allowAccessToResource() === false) {
             return abort(403);
         }
 
@@ -30,12 +30,12 @@ final class BelichMiddleware
 
         // Default results per page cookie
         if (! $request->cookie('belich_perPage')) {
-            $response = $response->withCookie(cookie('belich_perPage', $this->perPage, Helper::timeForCookie()));
+            $response = $response->withCookie(cookie('belich_perPage', $this->perPage, Helper::setTimeForCookie()));
         }
 
         // Default trashed results cookie
         if (! $request->cookie('belich_withTrashed')) {
-            $response = $response->withCookie(cookie('belich_withTrashed', $this->withTrashed, Helper::timeForCookie()));
+            $response = $response->withCookie(cookie('belich_withTrashed', $this->withTrashed, Helper::setTimeForCookie()));
         }
 
         return $response;
