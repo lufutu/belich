@@ -1,4 +1,4 @@
-<div class="w-full h-20 bg-{{ config('belich-theme.sidebar.homeLogoColor') }}-200 border-b-2 border-{{ config('belich-theme.sidebar.homeLogoColor') }}-600 flex items-center justify-center">
+<div class="w-full h-20 bg-{{ config('belich-theme.sidebar.homeLogoColor') }}-400 border-b-2 {{ config('belich-theme.sidebar.homeLogoBorderBottonColor') }} flex items-center justify-center">
 
     {{-- Link --}}
     <a
