@@ -20,15 +20,10 @@ final class BelichMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // Authorized access to resource
         $accessToResource = Belich::$getAllowAccessToResource ?? null;
 
-        // The page is not a resource
-        if(is_null($accessToResource)) {
-            return $next($request);
-        }
-
-        // Authorized access to resource
-        if ($accessToResource === false) {
+        if (is_bool($accessToResource) && $accessToResource === false) {
             return abort(403);
         }
 
