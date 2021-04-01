@@ -8,7 +8,6 @@ use Daguilarm\Belich\Core\Belich\Traits\Environments;
 use Daguilarm\Belich\Core\Belich\Traits\Middlewares;
 use Daguilarm\Belich\Core\Belich\Traits\Resources;
 use Daguilarm\Belich\Core\Belich\Traits\Sidebars;
-use Illuminate\Http\Request;
 
 final class Belich
 {
@@ -23,21 +22,21 @@ final class Belich
     protected object $request;
     protected object $user;
 
-    /**
-     * Create the component instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->request = new Request();
-        $this->user = \Illuminate\Support\Facades\Auth::user() ?? collect();
+    // /**
+    //  * Create the component instance.
+    //  *
+    //  * @return void
+    //  */
+    // public function __construct()
+    // {
+    //     $this->request = new Request();
+    //     $this->user = \Illuminate\Support\Facades\Auth::user() ?? collect();
 
-        //Set pagination
-        if ($this->request->has('perPage')) {
-            $this->perPage = $this->request->perPage;
-        }
-    }
+    //     //Set pagination
+    //     if ($this->request->has('perPage')) {
+    //         $this->perPage = $this->request->perPage;
+    //     }
+    // }
 
     /**
      * Get the allowed actions for a Request

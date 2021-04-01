@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Daguilarm\Belich\App\Http\Middleware;
 
 use Closure;
-use Daguilarm\Belich\Facades\Belich;
+use Daguilarm\Belich\Facades\BelichRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /**
  * @author: https://github.com/nckg/laravel-minify-html
@@ -51,7 +52,7 @@ final class MinifyMiddleware
     /**
      * Handle an incoming request.
      */
-    public function handle(Request $request, Closure $next): Request
+    public function handle(Request $request, Closure $next): Response
     {
         /** @var Response $response */
         $response = $next($request);
@@ -67,7 +68,7 @@ final class MinifyMiddleware
         }
 
         // If the current action is excluded
-        if (in_array(Belich::action(), $this->exceptedActions())) {
+        if (in_array(BelichRequest::action(), $this->exceptedActions())) {
             return $response;
         }
 

@@ -44,11 +44,11 @@
             "providers": [
                 "Daguilarm\\Belich\\ServiceProvider",
                 "Daguilarm\\Belich\\Providers\\BladeServiceProvider",
-                "Daguilarm\\Belich\\Providers\\LivewireServiceProvider",
-                "Daguilarm\\Belich\\Providers\\RequestServiceProvider"
+                "Daguilarm\\Belich\\Providers\\LivewireServiceProvider"
             ],
             "aliases": {
                 "Belich": "Daguilarm\\Belich\\BelichFacade",
+                "BelichRequest": "Daguilarm\\Belich\\BelichRequestFacade",
                 "Helper": "Daguilarm\\Belich\\HelperFacade"
             }
         }

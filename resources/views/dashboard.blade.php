@@ -1,4 +1,4 @@
 <x-belich::app>
-    <div>{{ Str::of('CAR')->plural()->lower() }}</div>
+    {{-- @dd(BelichRequest::action()) --}}
 
 </x-belich::app>

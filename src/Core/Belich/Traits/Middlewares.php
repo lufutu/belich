@@ -8,8 +8,7 @@ use Daguilarm\Belich\Facades\Belich;
 
 trait Middlewares
 {
-    // private array $packageMiddleware = ['belich', 'minify'];
-    private array $packageMiddleware = [];
+    private array $packageMiddleware = ['belich', 'minify'];
     private array $defaultMiddleware = [
         'web',
         'auth:sanctum',

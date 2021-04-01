@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Daguilarm\Belich\App\Http\Middleware;
 
 use Closure;
-use Daguilarm\Belich\Core\Belich;
+use Daguilarm\Belich\Facades\Belich;
 use Daguilarm\Belich\Facades\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -20,8 +20,15 @@ final class BelichMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $accessToResource = Belich::$getAllowAccessToResource ?? null;
+
+        // The page is not a resource
+        if(is_null($accessToResource)) {
+            return $next($request);
+        }
+
         // Authorized access to resource
-        if (Belich::allowAccessToResource() === false) {
+        if ($accessToResource === false) {
             return abort(403);
         }
 

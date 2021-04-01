@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Daguilarm\Belich\Core\Belich\Traits;
 
 use Daguilarm\Belich\Facades\Belich;
+use Daguilarm\Belich\Facades\BelichRequest;
 use Illuminate\Support\Str;
 
 trait Resources
@@ -24,8 +25,14 @@ trait Resources
     /**
      * Get the resource class
      */
-    public function getResource(string $resource): object
+    public function getResource(?string $resource = null): object
     {
+        $resource = $resource ?: BelichRequest::resource();
+
+        if(!is_object($resource)) {
+            return collect([]);
+        }
+
         $class = sprintf(
             '%s\\%s\\Index',
             $this->getResourcePath(),
@@ -64,20 +71,6 @@ trait Resources
             array_merge(['/'], $this->resourcesPathFilter),
             '',
             self::path()
-        );
-    }
-
-    /**
-     * Get the app url.
-     */
-    public function url(): string
-    {
-        $url = sprintf('%s/%s', request()->root(), self::path());
-
-        return str_replace(
-            $this->resourcesPathFilter,
-            '/',
-            $url
         );
     }
 
