@@ -15,7 +15,7 @@
 
         {{-- Home icon --}}
         <x-belich-sidebar-home
-            :url="route('belich.dashboard')"
+            :url="route('dashboard')"
             :icon="svg('heroicon-s-home', 'h-5 w-5')"
         />
 
@@ -33,7 +33,7 @@
 
                         {{-- Get the unique item --}}
                         <x-belich-sidebar-link
-                            :url="route('belich.dashboard')"
+                            :url="route('dashboard')"
                             :icon="$resource->first()->get('icon')"
                             :text="$resource->first()->get('pluralLabel')"
                         />
@@ -47,7 +47,7 @@
                             {{-- List of items --}}
                             @foreach($resource as $item)
                                 <x-belich-sidebar-group-link
-                                    :url="route('belich.dashboard')"
+                                    :url="route('dashboard')"
                                     :text="$item->get('pluralLabel')"
                                 />
                             @endforeach

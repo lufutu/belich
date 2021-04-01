@@ -23,6 +23,11 @@ final class Belich
     protected object $request;
     protected object $user;
 
+    /**
+     * Create the component instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->request = new Request();
@@ -32,5 +37,21 @@ final class Belich
         if ($this->request->has('perPage')) {
             $this->perPage = $this->request->perPage;
         }
+    }
+
+    /**
+     * Get the allowed actions for a Request
+     */
+    public function getAllowedActions()
+    {
+        return $this->allowedActions;
+    }
+
+    /**
+     * Get the results per page
+     */
+    public function getPerPage()
+    {
+        return $this->perPage;
     }
 }

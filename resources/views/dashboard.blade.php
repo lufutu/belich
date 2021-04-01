@@ -1,3 +1,4 @@
 <x-belich::app>
-    {{-- @dd(Belich::getResource('car')) --}}
+    <div>{{ Str::of('CAR')->plural()->lower() }}</div>
+
 </x-belich::app>

@@ -13,7 +13,7 @@ use Illuminate\Http\Response;
 final class BelichMiddleware
 {
     private int $perPage = 20;
-    private string $withTrashed = 'none';
+    private bool $withTrashed = false;
 
     /**
      * Set the Belich middleware

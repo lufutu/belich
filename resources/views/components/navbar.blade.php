@@ -24,7 +24,10 @@
                     </div>
 
                     {{-- Profile --}}
-                    <x-jet-dropdown-link class="flex items-center" href="{{ route('belich.profile.show') }}">
+                    <x-jet-dropdown-link
+                        class="flex items-center"
+                        href="{{ route(Belich::pathName() . '.profile.show') }}"
+                    >
                         @svg('heroicon-o-user', 'h-4 w-5 mr-1 text-gray-400')
                         <div>{{ __('Profile') }}</div>
                     </x-jet-dropdown-link>

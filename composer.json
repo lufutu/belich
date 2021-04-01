@@ -44,7 +44,8 @@
             "providers": [
                 "Daguilarm\\Belich\\ServiceProvider",
                 "Daguilarm\\Belich\\Providers\\BladeServiceProvider",
-                "Daguilarm\\Belich\\Providers\\LivewireServiceProvider"
+                "Daguilarm\\Belich\\Providers\\LivewireServiceProvider",
+                "Daguilarm\\Belich\\Providers\\RequestServiceProvider"
             ],
             "aliases": {
                 "Belich": "Daguilarm\\Belich\\BelichFacade",

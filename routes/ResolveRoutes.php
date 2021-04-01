@@ -6,7 +6,6 @@ use Daguilarm\Belich\Facades\Belich;
 
 /** Belich Routes */
 Route::group([
-    'as' => 'belich.',
     'middleware' => Belich::middleware(),
 ], static function (): void {
 
@@ -16,7 +15,7 @@ Route::group([
     });
 
     //Profile
-    Route::name('profile.show')->get('/dashboard/profile', function () {
+    Route::name(sprintf('%s.', Belich::pathName()) . 'profile.show')->get('/dashboard/profile', function () {
         return view('belich::profile');
     });
 

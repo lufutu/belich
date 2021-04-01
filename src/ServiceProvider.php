@@ -65,6 +65,10 @@ final class ServiceProvider extends Provider
     {
         // Dashboard routes
         require_once __DIR__ . '/../routes/ResolveRoutes.php';
+
+        if (app()->environment('testing')) {
+            require_once __DIR__ . '/../routes/TestingRoutes.php';
+        }
     }
 
     /**
