@@ -21,7 +21,7 @@ final class BelichMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         // Authorized access to resource
-        $accessToResource = Belich::$getAllowAccessToResource ?? null;
+        $accessToResource = Belich::getAllowAccessToResource();
 
         if (is_bool($accessToResource) && $accessToResource === false) {
             return abort(403);

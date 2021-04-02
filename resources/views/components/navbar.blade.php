@@ -12,10 +12,13 @@
 
             {{-- Notifications --}}
             <div class="flex relative block bg-gray-100 rounded-full w-8 h-8 p-1">
+
                 {{-- Notification ping: Activate only when there is a notification --}}
                 <span class="absolute right-0 top-0 animate-ping h-2 w-2 rounded-full bg-{{ config('belich-theme.theme-color') }}-400 opacity-75"></span>
+
                 {{-- Icon --}}
                 <x-heroicon-s-bell class="h-6 w-6 text-{{ config('belich-theme.theme-color') }}-400" />
+
             </div>
 
             {{-- Navigation dropdown --}}
@@ -36,7 +39,7 @@
                         {{-- Profile --}}
                         <x-jet-dropdown-link
                             class="flex items-center"
-                            href="{{ route(Belich::pathName() . '.profile.show') }}"
+                            href="{{ route(Belich::pathName() . '.profiles.show') }}"
                         >
                             @svg('heroicon-o-user', 'h-4 w-5 mr-1 text-gray-400')
                             <div>{{ __('Profile') }}</div>

@@ -18,8 +18,12 @@ trait Resources
     /**
      * Get the resource $allowAccessToResource variable from the resource.
      */
-    public function getAllowAccessToResource(): bool
+    public function getAllowAccessToResource(?string $resource = null): bool
     {
+        $class = $this->getResource();
+
+        // If the page is not a resource (for example the dashboard view) the default value is true.
+        return $class::$allowAccessToResource ?? true;
     }
 
     /**
@@ -27,7 +31,7 @@ trait Resources
      */
     public function getResource(?string $resource = null): object
     {
-        $resource = $resource ?: BelichRequest::resource();
+        $resource = $this->getResourceClassName($resource);
 
         if(!is_object($resource)) {
             return collect([]);
@@ -40,6 +44,14 @@ trait Resources
         );
 
         return app($class);
+    }
+
+    /**
+     * Get the resource class Name
+     */
+    public function getResourceClassName(?string $resource = null): string
+    {
+        return $resource ?: BelichRequest::resource();
     }
 
     /**

@@ -29,7 +29,7 @@ abstract class IndexResource
      *
      * @return array<string>
      */
-    abstract public function table(Request $request): array;
+    abstract public function columns(Request $request): array;
 
     /**
      * Set the resource model
