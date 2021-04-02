@@ -7,8 +7,10 @@ namespace Daguilarm\Belich;
 use Daguilarm\Belich\App\Http\Livewire\UpdateProfileInformationForm;
 use Daguilarm\Belich\App\View\Components\Group;
 use Daguilarm\Belich\App\View\Components\Sidebar;
+use Daguilarm\Belich\Facades\Belich;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider as Provider;
 use Illuminate\View\Compilers\BladeCompiler;
 use Livewire\Livewire;
@@ -27,6 +29,7 @@ final class ServiceProvider extends Provider
         $this->registerBootstrap();
         $this->registerRoutes();
         $this->registerResources();
+        $this->registerViewShare();
         $this->configureComponents();
         $this->configureLivewire();
         // $this->registerConsole();
@@ -82,12 +85,12 @@ final class ServiceProvider extends Provider
     {
         $this->callAfterResolving(BladeCompiler::class, function (): void {
             // Load the custom components with classes
-            Blade::component('belich-sidebar', Sidebar::class);
             Blade::component('belich-sidebar-group', Group::class);
 
             // Load anonymous components
             Blade::component('belich::components.app', 'belich-app');
             Blade::component('belich::components.navbar', 'belich-navbar');
+            Blade::component('belich::components.sidebar', 'belich-sidebar');
             Blade::component('belich::components.sidebar.group-link', 'belich-sidebar-group-link');
             Blade::component('belich::components.sidebar.home', 'belich-sidebar-home');
             Blade::component('belich::components.sidebar.link', 'belich-sidebar-link');
@@ -116,6 +119,15 @@ final class ServiceProvider extends Provider
         //Load language translations...
         $this->loadTranslationsFrom(resource_path('lang/vendor/belich'), 'belich');
         $this->loadJsonTranslationsFrom(resource_path('lang/vendor/belich'), 'belich');
+    }
+
+    /**
+     * Register all the global variables for the views
+     */
+    protected function registerViewShare(): void
+    {
+        // Set all the default variables inside the views
+        View::share('getAllResources', Belich::getAllResources());
     }
 
     /**

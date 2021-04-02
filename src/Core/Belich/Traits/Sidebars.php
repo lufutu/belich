@@ -11,16 +11,13 @@ trait Sidebars
     /**
      * Prepare all the navigation fields for the sidebar
      */
-    public function sidebar(): Collection
+    public function sidebar(?Collection $data = null): Collection
     {
-        return collect($this->getAllResourcesForSidebar())
-            ->map(static function ($item) {
-                return $item['displayInNavigation'] === true
-                    ? $item->forget('displayInNavigation')
-                    : null;
-            })
-            ->filter()
-            ->values()
+        $resources = is_null($data)
+            ? $this->getAllResources()
+            : $data;
+
+        return $resources
             ->groupBy(['group'])
             ->sortBy(['pluralLabel']);
     }

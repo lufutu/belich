@@ -22,8 +22,8 @@
         {{-- Sidbar links --}}
         <ul class="text-white">
 
-            {{-- Get all the navigation resources --}}
-            @foreach($resources as $resource)
+            {{-- Get all the navigation resources. $getAllResources from \Daguilarm\Belich\ServiceProvider --}}
+            @foreach(Belich::sidebar($getAllResources) as $resource)
 
                 {{-- Items lists --}}
                 <li>

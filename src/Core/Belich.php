@@ -38,6 +38,18 @@ final class Belich
     //     }
     // }
 
+    public function getAllResources()
+    {
+        return collect($this->getAllResourcesForSidebar())
+            ->map(static function ($item) {
+                return $item['displayInNavigation'] === true
+                    ? $item->forget('displayInNavigation')
+                    : null;
+            })
+            ->filter()
+            ->values();
+    }
+
     /**
      * Get the allowed actions for a Request
      */
