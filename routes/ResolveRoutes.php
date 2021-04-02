@@ -20,9 +20,10 @@ Route::group([
         return view('belich::profile');
     });
 
+    // Resources
     Route::name(sprintf('%s.', Belich::pathName()))->prefix(Belich::pathName())->group(function () {
         // Resources
-        Route::resource('users', DataTables::class);
+        Route::get('users', DataTables::class);
     });
 
 

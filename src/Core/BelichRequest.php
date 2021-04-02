@@ -15,7 +15,7 @@ final class BelichRequest
      */
     public function parameters(): array
     {
-        $requestRoute = Request::route()->getName();
+        $requestRoute = request()->route()->getName();
         $requestValues = Str::of($requestRoute)
             ->explode('.')
             ->toArray();

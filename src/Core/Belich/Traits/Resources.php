@@ -55,7 +55,17 @@ trait Resources
     }
 
     /**
-     * Get the app name.
+     * Get the resource name.
+     */
+    public function url(): string
+    {
+        $url = request()->root() . $this->path();
+
+        return sprintf('%s/%s', $url, $this->getResourceClassName());
+    }
+
+    /**
+     * Get the Belich app name.
      */
     public function name(): string
     {

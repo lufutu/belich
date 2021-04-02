@@ -6,9 +6,11 @@ use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 
 class DataTables extends LivewireDatatable
 {
-    public function columns()
+    public function columns(): array
     {
         $class = Belich::getResource();
+
+        return $class::columns();
     }
 
     public function render()

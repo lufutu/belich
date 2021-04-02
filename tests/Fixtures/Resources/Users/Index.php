@@ -11,7 +11,7 @@ final class Index extends IndexResource
     public static string $label = "Usuario";
     public static string $pluralLabel = "Usuarios";
 
-    public function table(Request $request): array
+    public function columns(Request $request): array
     {
         return [];
     }

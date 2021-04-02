@@ -55,6 +55,7 @@ trait Sidebars
 
         return collect([
             'class' => $resourceName,
+            'allowAccessToResource' => $class::$allowAccessToResource,
             'displayInNavigation' => $class::$displayInNavigation,
             'group' => $class::$group ?? $title,
             'icon' => $this->resourceIcon($class),

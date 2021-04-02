@@ -21,12 +21,10 @@ trait ResourceAttributes
      */
     private function resourceLabel(object $class, string $resourceName): string
     {
-        $altLabel = Str::of($resourceName)
-            ->ucfirst()
-            ->singular()
-            ->__toString();
+        $label = $this->resourceLabelFormat($class::$label, 'singular');
+        $altLabel = $this->resourceLabelFormat($resourceName, 'singular');
 
-        return $class::$label ?? $altLabel;
+        return $label ?? $altLabel;
     }
 
     /**
@@ -34,11 +32,18 @@ trait ResourceAttributes
      */
     private function resourcePluralLabel(object $class, string $resourceName): string
     {
-        $altPluralLabel = Str::of($resourceName)
-            ->ucfirst()
-            ->plural()
-            ->__toString();
+        $label = $this->resourceLabelFormat($class::$pluralLabel);
+        $altLabel = $this->resourceLabelFormat($resourceName);
 
-        return $class::$pluralLabel ?? $altPluralLabel;
+        return $label ?? $altLabel;
+    }
+
+    private function resourceLabelFormat(string $label, string $quantity = 'plural')
+    {
+        $label = Str::of($label)->ucfirst();
+
+        return $quantity === 'plural'
+            ? $label->plural()->__toString()
+            : $label->singular()->__toString();
     }
 }
