@@ -31,7 +31,7 @@ trait Middlewares
             ? $this->setMiddleware(config('belich.middleware'))
 
             // Only the default middleware
-            : $this->setMiddleware(this->defaultMiddleware);
+            : $this->setMiddleware($this->defaultMiddleware);
     }
 
     /**
