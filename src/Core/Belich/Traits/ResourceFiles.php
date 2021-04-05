@@ -42,7 +42,7 @@ trait ResourceFiles
      */
     private function getResourcesPath(): string
     {
-        return config('belich.resources');
+        return config('belich.resources') || app_path('Belich/Resources');
     }
 
     /**
