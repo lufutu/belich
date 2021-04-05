@@ -24,7 +24,7 @@ trait Middlewares
         if (Belich::hasTestingEnvironment()) {
             return [];
         }
-
+        var_dump(config('belich.middleware'));exit;
         return count(config('belich.middleware')) > 0
 
             // Add the middleware from the configuration file [/config/belich.php] and the package middlewar
